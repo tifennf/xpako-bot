@@ -4,7 +4,7 @@ import commands from "./commands/_commands.js";
 
 import config from "../config.js";
 
-const { token } = config;
+const { token, guildId } = config;
 
 const client = new Client({
 	intents: [
@@ -17,12 +17,33 @@ const client = new Client({
 
 client.commands = new Collection();
 
-commands.forEach((com) => {
+const commandsList = commands.map((com) => {
 	client.commands.set(com.data.name, com);
+
+	return com.data.toJSON();
 });
 
-client.once("ready", () => {
-	console.log("ready!");
+client.once("ready", async () => {
+	console.log("Bot ready !");
+
+	const guild = client.guilds.cache.get(guildId);
+
+	const res = await guild.commands.set(commandsList);
+
+	res.forEach(async (cmd) => {
+		const permissions = [
+			{
+				id: "397076520318795777",
+				type: "ROLE",
+				permission: true,
+			},
+		];
+
+		await cmd.permissions.set({
+			permissions,
+		});
+	});
+	console.log("Permissions set !");
 });
 
 client.on("messageCreate", async (message) => {

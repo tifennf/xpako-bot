@@ -4,7 +4,7 @@ export default {
 	data: new SlashCommandBuilder()
 		.setName("close")
 		.setDescription("Ferme les inscriptions pour le tournoi")
-		.defaultPermission(false),
+		.setDefaultPermission(false),
 	execute: async (interaction) => {
 		interaction.reply("Fermeture des inscriptions...");
 	},

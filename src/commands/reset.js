@@ -4,7 +4,7 @@ export default {
 	data: new SlashCommandBuilder()
 		.setName("reset")
 		.setDescription("Rénitialise la liste des joueurs inscrits")
-		.defaultPermission(false),
+		.setDefaultPermission(false),
 	execute: async (interaction) => {
 		interaction.reply("reset...");
 	},

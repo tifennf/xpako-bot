@@ -4,7 +4,7 @@ export default {
 	data: new SlashCommandBuilder()
 		.setName("open")
 		.setDescription("Ouvre les inscriptions pour le tournoi")
-		.defaultPermission(false),
+		.setDefaultPermission(false),
 	execute: async (interaction) => {
 		const message = await interaction.reply({
 			content: "Ouverture des inscriptions...",

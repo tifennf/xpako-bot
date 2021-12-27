@@ -4,7 +4,7 @@ export default {
 	data: new SlashCommandBuilder()
 		.setName("verify")
 		.setDescription("Verifie la liste des inscrits")
-		.defaultPermission(false),
+		.setDefaultPermission(false),
 	execute: async (interaction) => {
 		const message = await interaction.reply({
 			content: "Infos...",

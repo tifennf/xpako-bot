@@ -4,7 +4,7 @@ export default {
 	data: new SlashCommandBuilder()
 		.setName("check-in")
 		.setDescription("Envoi un message privé de rappel aux joueurs inscrits")
-		.defaultPermission(false),
+		.setDefaultPermission(false),
 	execute: async (interaction) => {
 		const guildMembers = await interaction.guild.members.list({ limit: 20 });
 		guildMembers.forEach((guildMember) => {
