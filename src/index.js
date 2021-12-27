@@ -33,7 +33,7 @@ client.once("ready", async () => {
 	res.forEach(async (cmd) => {
 		const permissions = [
 			{
-				id: "397076520318795777",
+				id: "925133743071559751",
 				type: "ROLE",
 				permission: true,
 			},
