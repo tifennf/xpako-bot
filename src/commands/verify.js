@@ -7,9 +7,12 @@ export default {
 		.setDefaultPermission(false),
 	execute: async (interaction) => {
 		const res = await fetch("http://localhost:3024/info");
-		const info = await res.json();
+		const body = await res.json();
 
-		const content = "```json\n" + JSON.stringify(info.data) + "\n```";
+		const content =
+			res.status === 200
+				? "```json\n" + JSON.stringify(body.data) + "\n```"
+				: `Error occured\nStatus: ${body.status}\nInfo: ${body.data}`;
 
 		await interaction.reply({
 			content,
