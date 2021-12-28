@@ -50,7 +50,7 @@ const generate_pools_string = (data) => {
 
 	const final_string = plist.join("\n\n");
 
-	if (final_string.lenght() === 0) {
+	if (final_string.lenght === 0) {
 		return "Aucun joueurs inscrits pour générer les pools";
 	}
 
