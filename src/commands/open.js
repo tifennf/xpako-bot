@@ -1,5 +1,5 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
-// import fetch from "node-fetch";
+import fetch from "node-fetch";
 
 export default {
 	data: new SlashCommandBuilder()
@@ -7,18 +7,41 @@ export default {
 		.setDescription("Ouvre les inscriptions pour le tournoi")
 		.setDefaultPermission(false),
 	execute: async (interaction) => {
-		console.log(interaction);
+		const action = {
+			open: true,
+		};
 
-		// const res = await fetch(
-		// 	"http://localhost:3024/tournament/inscriptions/status"
-		// );
-		// const body = await res.json();
+		const requestOptions = {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(action),
+		};
 
-		const message = await interaction.reply({
-			content: "Ouverture des inscriptions...",
-			fetchReply: true,
-		});
+		try {
+			const res = await fetch(
+				"http://localhost:3024/tournament/inscriptions/status",
+				requestOptions
+			);
 
-		message.react("😄");
+			if (res.status !== 200) {
+				throw "Erreur...";
+			}
+
+			const content = "Inscriptions ouvertes, /close pour les fermer";
+
+			interaction.reply({
+				content,
+				fetchReply: true,
+			});
+		} catch (error) {
+			console.error(error);
+
+			interaction.reply({
+				content: "Erreur...",
+				fetchReply: true,
+			});
+		}
 	},
 };
