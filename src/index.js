@@ -48,6 +48,14 @@ client.once("ready", async () => {
 
 client.on("messageCreate", async (message) => {
 	if (message.channelId === "924720650608861214") {
+		console.log(message.author);
+
+		const { username } = message.author;
+		const { discriminator } = message.author;
+
+		console.log(username);
+		console.log(discriminator);
+
 		message.react("✅");
 	}
 });
