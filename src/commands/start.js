@@ -1,6 +1,6 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
+import { generate_pools_string } from "../utils/commands.js";
 import fetch from "node-fetch";
-import { generate_pools_string } from "../utils/commands";
 
 export default {
 	data: new SlashCommandBuilder()
