@@ -9,6 +9,6 @@ export default {
 	execute: async (interaction) => {
 		const content = "Inscriptions fermées, /open pour les ouvrir";
 
-		openInscriptions(interaction, content, true);
+		openInscriptions(interaction, content, false);
 	},
 };
