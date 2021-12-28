@@ -37,4 +37,4 @@ const openInscriptions = async (interaction, content, open) => {
 	}
 };
 
-export default { open_inscriptions: openInscriptions };
+export default { openInscriptions };
