@@ -17,7 +17,7 @@ export default {
 			const pools_string = generate_pools_string(data);
 
 			const content =
-				"Liste des pools générées\n============================================================\n\n" +
+				"Liste des pools générées\n============================================================\n" +
 				"```\n" +
 				pools_string +
 				"\n```";
