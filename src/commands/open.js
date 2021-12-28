@@ -1,5 +1,6 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
 import { openInscriptions } from "../utils/commands.js";
+
 export default {
 	data: new SlashCommandBuilder()
 		.setName("open")
