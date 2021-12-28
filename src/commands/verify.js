@@ -9,10 +9,10 @@ export default {
 		const res = await fetch("http://localhost:3024/info");
 		const info = await res.json();
 
-		console.log(info);
+		const data = JSON.stringify(info.data);
 
 		const message = await interaction.reply({
-			content: info.data.toString(),
+			content: data,
 			fetchReply: true,
 		});
 
