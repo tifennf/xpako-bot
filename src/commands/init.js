@@ -39,8 +39,10 @@ export default {
 		const res = await fetch("http://localhost:3024/tournament", requestOptions);
 		const body = await res.json();
 
+		const content = `Tournois "${body.data.tournament_name} iniatialisé avec une capacité de ${body.data.max_amount} joueurs\nFaites /open pour ouvrir les inscriptions, /close pour les fermer`;
+
 		const message = await interaction.reply({
-			content: JSON.stringify(body),
+			content,
 			fetchReply: true,
 		});
 
