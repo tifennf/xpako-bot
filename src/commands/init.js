@@ -36,9 +36,17 @@ export default {
 			body: JSON.stringify(init),
 		};
 
-		const res = await fetch("http://localhost:3024/tournament", requestOptions);
-		const body = await res.json();
+		let body;
 
+		try {
+			const res = await fetch(
+				"http://localhost:3024/tournament",
+				requestOptions
+			);
+			body = await res.json();
+		} catch (error) {
+			console.error(error);
+		}
 		const { max_amount } = body.data.player_list;
 		const { tournament_name } = body.data;
 
