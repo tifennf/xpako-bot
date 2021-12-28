@@ -48,7 +48,9 @@ const generate_pools_string = (data) => {
 		return list;
 	});
 
-	const final_string = plist.join("\n\n");
+	const final_string = plist.join(
+		"\n---------------------------------------------\n"
+	);
 
 	const len = final_string.length;
 
