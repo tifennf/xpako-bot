@@ -37,4 +37,20 @@ const openInscriptions = async (interaction, content, open) => {
 	}
 };
 
-export { openInscriptions };
+const generate_pools_string = (data) => {
+	const { pool_list } = data.tournament;
+
+	const plist = pool_list.map((pool) => {
+		const player_list = pool.player_list.map((player) => player.league_name);
+
+		const list = player_list.join("\n");
+
+		return list;
+	});
+
+	const final_string = plist.join("\n\n");
+
+	return final_string;
+};
+
+export { openInscriptions, generate_pools_string };

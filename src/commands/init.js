@@ -43,8 +43,6 @@ export default {
 			);
 			const body = await res.json();
 
-			console.log(body);
-
 			const { max_amount } = body.data.player_list;
 
 			const { tournament_name } = body.data;

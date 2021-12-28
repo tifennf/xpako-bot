@@ -1,4 +1,6 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
+import fetch from "node-fetch";
+import { generate_pools_string } from "../utils/commands";
 
 export default {
 	data: new SlashCommandBuilder()
@@ -6,11 +8,25 @@ export default {
 		.setDescription("Génère les pools randoms du tournoi"),
 	// .setDefaultPermission(false),
 	execute: async (interaction) => {
-		const message = await interaction.reply({
-			content: "ppppppp...",
-			fetchReply: true,
-		});
+		try {
+			const res = await fetch("http://localhost:3024/tournament");
+			const body = await res.json();
 
-		message.react("😄");
+			const { data } = body;
+
+			const content = generate_pools_string(data);
+
+			interaction.reply({
+				content,
+				fetchReply: true,
+			});
+		} catch (error) {
+			console.error(error);
+
+			interaction.reply({
+				content: "Error...",
+				fetchReply: true,
+			});
+		}
 	},
 };
