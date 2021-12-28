@@ -5,8 +5,8 @@ import fetch from "node-fetch";
 export default {
 	data: new SlashCommandBuilder()
 		.setName("start")
-		.setDescription("Génère les pools randoms du tournoi"),
-	// .setDefaultPermission(false),
+		.setDescription("Génère les pools randoms du tournoi")
+		.setDefaultPermission(false),
 	execute: async (interaction) => {
 		try {
 			const res = await fetch("http://localhost:3024/tournament");
