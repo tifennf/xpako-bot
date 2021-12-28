@@ -9,6 +9,8 @@ export default {
 		const res = await fetch("http://localhost:3024");
 		const info = await res.json();
 
+		console.log(info);
+
 		const message = await interaction.reply({
 			content: info.data,
 			fetchReply: true,
