@@ -9,13 +9,11 @@ export default {
 		const res = await fetch("http://localhost:3024/info");
 		const info = await res.json();
 
-		const data = JSON.stringify(info.data);
+		const content = `\```json\n${JSON.stringify(info.data)}\n``\``;
 
-		const message = await interaction.reply({
-			content: data,
+		await interaction.reply({
+			content,
 			fetchReply: true,
 		});
-
-		message.react("😀");
 	},
 };
