@@ -36,25 +36,26 @@ export default {
 			body: JSON.stringify(init),
 		};
 
-		let body;
-
 		try {
 			const res = await fetch(
 				"http://localhost:3024/tournament",
 				requestOptions
 			);
-			body = await res.json();
+			const body = await res.json();
+			const { max_amount } = body.data.player_list;
+			const { tournament_name } = body.data;
+
+			const content = `Tournoi "${tournament_name}" initialisé avec une capacité de ${max_amount} joueurs\nFaites /open pour ouvrir les inscriptions, /close pour les fermer`;
+
+			await interaction.reply({
+				content,
+				fetchReply: true,
+			});
 		} catch (error) {
-			console.error(error);
+			interaction.reply({
+				content: error,
+				fetchReply: true,
+			});
 		}
-		const { max_amount } = body.data.player_list;
-		const { tournament_name } = body.data;
-
-		const content = `Tournoi "${tournament_name}" initialisé avec une capacité de ${max_amount} joueurs\nFaites /open pour ouvrir les inscriptions, /close pour les fermer`;
-
-		await interaction.reply({
-			content,
-			fetchReply: true,
-		});
 	},
 };
