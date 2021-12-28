@@ -7,7 +7,7 @@ export default {
 		.setDescription("Verifie la liste des inscrits")
 		.setDefaultPermission(false),
 	execute: async (interaction) => {
-		const content = get_infos();
+		const content = await get_infos();
 
 		await interaction.reply({
 			content,
