@@ -1,6 +1,6 @@
 import fetch from "node-fetch";
 
-const open_inscriptions = async (interaction, content, open) => {
+const openInscriptions = async (interaction, content, open) => {
 	const action = {
 		open,
 	};
@@ -37,4 +37,4 @@ const open_inscriptions = async (interaction, content, open) => {
 	}
 };
 
-export default { open_inscriptions };
+export default { open_inscriptions: openInscriptions };

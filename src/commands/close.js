@@ -1,5 +1,5 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
-import open_inscriptions from "../utils/commands.js";
+import { open_inscriptions } from "../utils/commands.js";
 
 export default {
 	data: new SlashCommandBuilder()

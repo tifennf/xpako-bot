@@ -1,5 +1,14 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
 import fetch from "node-fetch";
+
+const resolvePlayerList = (body) => {
+	if (!body.player_list) {
+		return { max_amount: 0, current_amount: 0 };
+	} else {
+		return body.player_list;
+	}
+};
+
 export default {
 	data: new SlashCommandBuilder()
 		.setName("verify")
@@ -9,10 +18,15 @@ export default {
 		const res = await fetch("http://localhost:3024/info");
 		const body = await res.json();
 
-		const content =
-			res.status === 200
-				? "```json\n" + JSON.stringify(body.data) + "\n```"
-				: `Error occured\nStatus: ${body.status}\nInfo: ${body.data}`;
+		const player_list = resolvePlayerList(body);
+
+		const content = `Tournoi généré: ${
+			body.tournament ? "Oui" : "Non"
+		}\nInscriptions ouvertes: ${
+			body.open ? "Oui" : "Non"
+		}\nCapacité du tournoi: ${player_list.max_amount}\nJoueurs inscrits: ${
+			player_list.current_amount
+		}`;
 
 		await interaction.reply({
 			content,
