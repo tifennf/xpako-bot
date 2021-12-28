@@ -6,7 +6,7 @@ export default {
 		.setDescription("Verifie la liste des inscrits")
 		.setDefaultPermission(false),
 	execute: async (interaction) => {
-		const res = await fetch("http://localhost:3024");
+		const res = await fetch("http://localhost:3024/info");
 		const info = await res.json();
 
 		console.log(info);
