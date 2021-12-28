@@ -47,13 +47,13 @@ export default {
 
 			const content = `Tournoi "${tournament_name}" initialisé avec une capacité de ${max_amount} joueurs\nFaites /open pour ouvrir les inscriptions, /close pour les fermer`;
 
-			await interaction.reply({
+			interaction.reply({
 				content,
 				fetchReply: true,
 			});
 		} catch (error) {
 			interaction.reply({
-				content: error,
+				content: "aaaaaa",
 				fetchReply: true,
 			});
 		}
