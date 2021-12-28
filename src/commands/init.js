@@ -42,13 +42,11 @@ export default {
 		const { max_amount } = body.data.player_list;
 		const { tournament_name } = body.data;
 
-		const content = `Tournois "${tournament_name}" iniatialisé avec une capacité de ${max_amount} joueurs\nFaites /open pour ouvrir les inscriptions, /close pour les fermer`;
+		const content = `Tournoi "${tournament_name}" initialisé avec une capacité de ${max_amount} joueurs\nFaites /open pour ouvrir les inscriptions, /close pour les fermer`;
 
-		const message = await interaction.reply({
+		await interaction.reply({
 			content,
 			fetchReply: true,
 		});
-
-		message.react("😄");
 	},
 };
