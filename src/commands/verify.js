@@ -20,6 +20,9 @@ export default {
 
 		const player_list = resolvePlayerList(body);
 
+		console.log(player_list);
+		console.log(body);
+
 		const content = `Tournoi généré: ${
 			body.tournament ? "Oui" : "Non"
 		}\nInscriptions ouvertes: ${
