@@ -9,7 +9,7 @@ export default {
 		const res = await fetch("http://localhost:3024/info");
 		const info = await res.json();
 
-		const content = `\```json\n${JSON.stringify(info.data)}\n``\``;
+		const content = "```json\n" + JSON.stringify(info.data) + "\n```";
 
 		await interaction.reply({
 			content,
