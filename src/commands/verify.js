@@ -22,9 +22,9 @@ export default {
 
 		const player_list = resolvePlayerList(data);
 
-		const content = `Tournoi généré: ${
+		const content = `Pools randoms générées: ${
 			data.tournament ? "Oui" : "Non"
-		}\nInscriptions ouvertes: ${
+		}\nNom du tournoi: ${data.tournament_name}\nInscriptions ouvertes: ${
 			data.open ? "Oui" : "Non"
 		}\nCapacité du tournoi: ${player_list.max_amount}\nJoueurs inscrits: ${
 			player_list.current_amount
