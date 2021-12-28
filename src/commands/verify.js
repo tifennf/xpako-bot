@@ -11,6 +11,6 @@ export default {
 			fetchReply: true,
 		});
 
-		message.react("😄");
+		message.react("😀");
 	},
 };
