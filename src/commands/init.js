@@ -42,6 +42,7 @@ export default {
 				requestOptions
 			);
 			const body = await res.json();
+
 			const { max_amount } = body.data.player_list;
 			const { tournament_name } = body.data;
 
@@ -52,6 +53,8 @@ export default {
 				fetchReply: true,
 			});
 		} catch (error) {
+			console.error(error);
+
 			interaction.reply({
 				content: "aaaaaa",
 				fetchReply: true,
