@@ -47,7 +47,7 @@ client.once("ready", async () => {
 });
 
 client.on("messageCreate", async (message) => {
-	if (message.channelId === "412758695798112266") {
+	if (message.channelId === "924720650608861214") {
 		message.react("✅");
 	}
 });
