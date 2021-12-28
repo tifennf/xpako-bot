@@ -22,6 +22,8 @@ export default {
 
 		const player_list = resolvePlayerList(data);
 
+		console.log(data.open);
+
 		const content = `Pools randoms générées: ${
 			data.tournament ? "Oui" : "Non"
 		}\nNom du tournoi: ${data.tournament_name}\nInscriptions ouvertes: ${
