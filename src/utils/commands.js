@@ -50,7 +50,43 @@ const generate_pools_string = (data) => {
 
 	const final_string = plist.join("\n\n");
 
+	if (final_string.lenght() === 0) {
+		return "Aucun joueurs inscrits pour générer les pools";
+	}
+
 	return final_string;
 };
 
-export { openInscriptions, generate_pools_string };
+const resolvePlayerList = (data) => {
+	if (!data.player_list) {
+		return { max_amount: 0, current_amount: 0 };
+	} else {
+		return data.player_list;
+	}
+};
+
+const get_infos = async () => {
+	const res = await fetch("http://localhost:3024/info");
+	const body = await res.json();
+
+	const { data } = body;
+
+	const player_list = resolvePlayerList(data);
+
+	const content = `Pools randoms générées: ${
+		data.tournament ? "Oui" : "Non"
+	}\nNom du tournoi: ${data.tournament_name}\nInscriptions ouvertes: ${
+		data.open ? "Oui" : "Non"
+	}\nCapacité du tournoi: ${player_list.max_amount}\nJoueurs inscrits: ${
+		player_list.current_amount
+	}`;
+
+	return content;
+};
+
+export {
+	openInscriptions,
+	generate_pools_string,
+	resolvePlayerList,
+	get_infos,
+};
