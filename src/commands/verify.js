@@ -12,7 +12,7 @@ export default {
 		console.log(info);
 
 		const message = await interaction.reply({
-			content: info.data,
+			content: info.data.toString(),
 			fetchReply: true,
 		});
 
