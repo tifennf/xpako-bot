@@ -1,4 +1,5 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
+import open_inscriptions from "../utils/commands.js";
 
 export default {
 	data: new SlashCommandBuilder()
@@ -6,6 +7,8 @@ export default {
 		.setDescription("Ferme les inscriptions pour le tournoi")
 		.setDefaultPermission(false),
 	execute: async (interaction) => {
-		interaction.reply("Fermeture des inscriptions...");
+		const content = "Inscriptions fermées, /open pour les ouvrir";
+
+		open_inscriptions(interaction, content, true);
 	},
 };
