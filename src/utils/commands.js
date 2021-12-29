@@ -118,6 +118,7 @@ const stringify_infos = (data, option) => {
 	const player_list = resolvePlayerList(data);
 
 	const is_pools_generated = data.tournament;
+	const is_plist = data.player_list;
 
 	const content = `Pools randoms générées: ${
 		is_pools_generated ? "Oui" : "Non"
@@ -127,14 +128,15 @@ const stringify_infos = (data, option) => {
 		player_list.current_amount
 	}`;
 
-	const pools = generate_pools_string(data);
-	const plist = generate_plist_string(data);
-
 	if (is_pools_generated && option === "pools") {
+		const pools = generate_pools_string(data);
 		return content.concat(["\n\n", pools]);
-	} else if (option === "list") {
+	} else if (is_plist && option === "list") {
+		const plist = generate_plist_string(data);
 		return content.concat(["\n\n", plist]);
-	} else if (option === "all") {
+	} else if (is_pools_generated && is_plist && option === "all") {
+		const pools = generate_pools_string(data);
+		const plist = generate_plist_string(data);
 		return content.concat(["\n\n", pools, "\n\n", plist]);
 	}
 
