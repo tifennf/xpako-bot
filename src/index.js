@@ -92,15 +92,9 @@ client.on("messageCreate", async (message) => {
 					const reaction = collected.first();
 
 					if (reaction.emoji.name === "❌") {
-						message.reply({
-							content: "Votre inscription est annulée",
-							ephemeral: true,
-						});
+						message.author.dmChannel.send("Votre inscription est annulée");
 					} else {
-						message.reply({
-							content: "Que voulez-vous ?",
-							ephemeral: true,
-						});
+						message.reply("hmmm");
 					}
 				});
 		} catch (_err) {
