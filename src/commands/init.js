@@ -4,19 +4,19 @@ import fetch from "node-fetch";
 export default {
 	data: new SlashCommandBuilder()
 		.setName("init")
-		.setDescription("Démarre une session de tournois")
+		.setDescription("Démarre une session de tournoi")
 		.setDefaultPermission(false)
 		.addStringOption((option) =>
 			option
 				.setName("name")
-				.setDescription("Nom de la session de tournois")
+				.setDescription("Nom de la session de tournoi")
 				.setRequired(true)
 		)
 		.addIntegerOption((option) =>
 			option
 				.setName("max_player")
 				.setDescription(
-					"Nombre de joueurs maximum dans le tournois ( 8 16 32 64 )"
+					"Nombre de joueurs maximum dans le tournoi ? 8 16 32 64 "
 				)
 				.setRequired(true)
 		),
