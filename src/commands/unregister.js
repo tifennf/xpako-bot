@@ -7,8 +7,6 @@ export default {
 		.setDescription("Annule votre inscription")
 		.setDefaultPermission(false),
 	execute: async (interaction) => {
-		console.log(interaction);
-
 		const { user } = interaction;
 
 		const { username } = user;
