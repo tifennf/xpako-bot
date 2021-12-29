@@ -13,11 +13,14 @@ export default {
 
 		console.log(id_list);
 
-		const guildMembers = await interaction.guild.members.list({ limit: 20 });
+		const guildMembers = await interaction.guild.members.list();
+
 		guildMembers.forEach((guildMember) => {
 			const { user } = guildMember;
 
 			const { id } = user;
+
+			console.log(id);
 
 			if (id_list.includes(id)) {
 				user.send("blablabla");
