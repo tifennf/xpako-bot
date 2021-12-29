@@ -57,7 +57,7 @@ client.on("messageCreate", async (message) => {
 		const player = {
 			league_name,
 			discord_username: username,
-			tag: discriminator,
+			tag: parseInt(discriminator, 10),
 			discord_id: id,
 		};
 
