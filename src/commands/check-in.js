@@ -9,6 +9,8 @@ export default {
 	execute: async (interaction) => {
 		const data = await get_infos();
 
+		console.log(data);
+
 		const id_list = data.player_list.map((player) => player.discord_id);
 
 		console.log(id_list);
