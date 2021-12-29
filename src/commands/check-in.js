@@ -41,6 +41,8 @@ export default {
 				if (id_list.includes(id)) {
 					const content = message_list[which_message - 1];
 
+					console.log(content);
+
 					user.send(content).react("🟥");
 				}
 			});
