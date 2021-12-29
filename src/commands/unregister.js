@@ -9,9 +9,9 @@ export default {
 	execute: async (interaction) => {
 		console.log(interaction);
 
-		const user = interaction.user;
+		const { user } = interaction;
 
-		const { username } = interaction.author;
+		const { username } = user;
 
 		const discriminator = parseInt(user.discriminator, 10);
 		const id = parseInt(user.id, 10);
