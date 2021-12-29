@@ -9,40 +9,48 @@ export default {
 	execute: async (interaction) => {
 		console.log(interaction);
 
-		// const { username } = interaction.author;
+		const user = interaction.user;
 
-		// const discriminator = parseInt(interaction.author.discriminator, 10);
-		// const id = parseInt(interaction.author.id, 10);
-		// const league_name = interaction.me.content;
+		const { username } = interaction.author;
 
-		// const player = {
-		// 	league_name,
-		// 	discord_username: username,
-		// 	tag: discriminator,
-		// 	discord_id: id,
-		// };
+		const discriminator = parseInt(user.discriminator, 10);
+		const id = parseInt(user.id, 10);
+		const league_name = "xxx";
 
-		// const requestOptions = {
-		// 	method: "POST",
-		// 	headers: {
-		// 		"Content-Type": "application/json",
-		// 	},
-		// 	body: JSON.stringify(player),
-		// };
+		const player = {
+			league_name,
+			discord_username: username,
+			tag: discriminator,
+			discord_id: id,
+		};
 
-		// try {
-		// 	const res = await fetch(
-		// 		"http://localhost:3024/tournament/inscriptions",
-		// 		requestOptions
-		// 	);
+		const requestOptions = {
+			method: "DELETE",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(player),
+		};
 
-		// 	if (res.status !== 200) {
-		// 		throw "Invalid input";
-		// 	}
+		try {
+			const res = await fetch(
+				"http://localhost:3024/tournament/inscriptions",
+				requestOptions
+			);
 
-		// 	message.react("✅");
-		// } catch (err) {
-		// 	message.react("⛔");
-		// }
+			if (res.status !== 200) {
+				throw "Invalid input";
+			}
+
+			interaction.reply({
+				content: "Votre inscription est annulé",
+				ephemeral: true,
+			});
+		} catch (err) {
+			interaction.reply({
+				content: "Vous n'êtes pas inscrit",
+				ephemeral: true,
+			});
+		}
 	},
 };
