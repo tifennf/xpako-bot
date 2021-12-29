@@ -1,7 +1,7 @@
 import { Client, Collection, Intents } from "discord.js";
 
 import commands from "./commands/_commands.js";
-
+import fetch from "node-fetch";
 import config from "../config.js";
 
 const { token, guildId } = config;
@@ -48,15 +48,43 @@ client.once("ready", async () => {
 
 client.on("messageCreate", async (message) => {
 	if (message.channelId === "924720650608861214") {
-		console.log(message.author);
-
 		const { username } = message.author;
 		const { discriminator } = message.author;
+		const { id } = message.author.id;
 
-		console.log(username);
-		console.log(discriminator);
+		const league_name = message.content;
 
-		message.react("✅");
+		const player = {
+			league_name,
+			discord_username: username,
+			tag: discriminator,
+			discord_id: id,
+		};
+
+		const requestOptions = {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(player),
+		};
+
+		try {
+			const res = await fetch(
+				"http://localhost:3024/tournament/inscriptions",
+				requestOptions
+			);
+
+			if (res.status !== 200) {
+				throw "Invalid input";
+			}
+
+			message.react("✅");
+		} catch (error) {
+			console.error(error);
+
+			message.react("❌");
+		}
 	}
 });
 
