@@ -5,7 +5,7 @@ export default {
 	data: new SlashCommandBuilder()
 		.setName("unregister")
 		.setDescription("Annule votre inscription")
-		.setDefaultPermission(false),
+		.setDefaultPermission(true),
 	execute: async (interaction) => {
 		const { user } = interaction;
 
