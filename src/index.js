@@ -57,8 +57,8 @@ client.on("messageCreate", async (message) => {
 		const player = {
 			league_name,
 			discord_username: username,
-			tag: 1000,
-			discord_id: 2000,
+			tag: "1000",
+			discord_id: "2000",
 		};
 
 		const requestOptions = {
