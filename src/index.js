@@ -79,27 +79,8 @@ client.on("messageCreate", async (message) => {
 				throw "Invalid input";
 			}
 
-			await message.react("✅");
-			await message.react("❌");
-
-			const collected = await message.awaitReactions();
-
-			const reaction = collected.first();
-
-			console.log(collected);
-
-			console.log("1");
-
-			if (reaction.emoji.name === "❌") {
-				console.log("2");
-
-				message.author.dmChannel.send("Votre inscription est annulée");
-			} else {
-				message.reply("hmmm");
-			}
+			message.react("✅");
 		} catch (err) {
-			console.error(err);
-
 			message.react("⛔");
 		}
 	}
