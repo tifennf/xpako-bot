@@ -54,6 +54,8 @@ client.on("messageCreate", async (message) => {
 
 		const league_name = message.content;
 
+		console.log(message.author);
+
 		const player = {
 			league_name,
 			discord_username: username,
