@@ -130,14 +130,14 @@ const stringify_infos = (data, option) => {
 
 	if (is_pools_generated && option === "pools") {
 		const pools = generate_pools_string(data);
-		return content.concat(["\n\n", pools]);
+		return content.concat(`\n\n${pools}`);
 	} else if (is_plist && option === "list") {
 		const plist = generate_plist_string(data);
-		return content.concat(["\n\n", plist]);
+		return content.concat(`\n\n${plist}`);
 	} else if (is_pools_generated && is_plist && option === "all") {
 		const pools = generate_pools_string(data);
 		const plist = generate_plist_string(data);
-		return content.concat(["\n\n", pools, "\n\n", plist]);
+		return content.concat(`\n\n${pools}\n\n${plist}`);
 	}
 
 	return content;
