@@ -30,7 +30,7 @@ export default {
 			console.error(error);
 
 			interaction.reply({
-				content: "Error...",
+				content: "Error... Pas assez de joueurs ?",
 				fetchReply: true,
 			});
 		}
