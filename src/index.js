@@ -49,8 +49,10 @@ client.once("ready", async () => {
 client.on("messageCreate", async (message) => {
 	if (message.channelId === "924720650608861214") {
 		const { username } = message.author;
-		const { discriminator } = parseInt(message.author, 10);
-		const { id } = parseInt(message.author.id, 10);
+		const { discriminator } = message.author;
+		const { id } = message.author;
+		// const { discriminator } = parseInt(message.author.discriminator, 10);
+		// const { id } = parseInt(message.author.id, 10);
 
 		const league_name = message.content;
 
