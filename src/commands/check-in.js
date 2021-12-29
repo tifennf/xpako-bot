@@ -9,20 +9,18 @@ export default {
 	execute: async (interaction) => {
 		const data = await get_infos();
 
-		console.log(data);
+		console.log(interaction.user.id);
 
 		const id_list = data.player_list.list.map((player) => player.discord_id);
 
 		console.log(id_list);
 
-		const guildMembers = await interaction.guild.members.list();
+		const guildMembers = await interaction.guild.members.fetch();
 
-		guildMembers.forEach((guildMember) => {
+		guildMembers.each((guildMember) => {
 			const { user } = guildMember;
 
 			const { id } = user;
-
-			console.log(id);
 
 			if (id_list.includes(id)) {
 				user.send("blablabla");
