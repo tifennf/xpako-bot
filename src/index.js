@@ -75,6 +75,8 @@ client.on("messageCreate", async (message) => {
 				requestOptions
 			);
 
+			console.log(res.status);
+
 			if (res.status !== 200) {
 				throw "Invalid input";
 			}
