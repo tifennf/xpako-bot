@@ -97,7 +97,9 @@ client.on("messageCreate", async (message) => {
 			} else {
 				message.reply("hmmm");
 			}
-		} catch (_err) {
+		} catch (err) {
+			console.error(err);
+
 			message.react("⛔");
 		}
 	}
