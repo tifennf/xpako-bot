@@ -11,7 +11,7 @@ export default {
 
 		console.log(data);
 
-		const id_list = data.player_list.map((player) => player.discord_id);
+		const id_list = data.player_list.list.map((player) => player.discord_id);
 
 		console.log(id_list);
 
