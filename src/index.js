@@ -51,7 +51,7 @@ client.on("messageCreate", async (message) => {
 		const { username } = message.author;
 
 		const discriminator = parseInt(message.author.discriminator, 10);
-		const id = parseInt(message.author.id, 10);
+		const { id } = message.author;
 		const league_name = message.content;
 
 		const player = {
