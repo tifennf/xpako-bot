@@ -49,15 +49,10 @@ client.once("ready", async () => {
 client.on("messageCreate", async (message) => {
 	if (message.channelId === "924720650608861214") {
 		const { username } = message.author;
-		// const { discriminator } = message.author;
-		// const { id } = message.author;
+
 		const discriminator = parseInt(message.author.discriminator, 10);
 		const id = parseInt(message.author.id, 10);
-
 		const league_name = message.content;
-
-		console.log(discriminator);
-		console.log(id);
 
 		const player = {
 			league_name,
@@ -79,8 +74,6 @@ client.on("messageCreate", async (message) => {
 				"http://localhost:3024/tournament/inscriptions",
 				requestOptions
 			);
-
-			console.log(res.status);
 
 			if (res.status !== 200) {
 				throw "Invalid input";
