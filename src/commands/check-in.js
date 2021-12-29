@@ -25,8 +25,8 @@ export default {
 			}
 
 			const message_list = [
-				"Hello,\n\nJe t'envoie ce message pour te rappeler **ton inscription à notre tournoi hebdomadaire !**\n\nIl aura lieu demain soir sur notre serveur discord : https://discord.gg/SkMSdyTFjd\n\n**Est-ce que tu confirmes ta présence ?**\n\nMerci d'avance de ta réponse, et good luck !",
-				"Hello,\n\nNotre tournoi débute dans **15 minutes !**\n\nTiens toi prêt et rejoint notre Discord : https://discord.gg/SkMSdyTFjd\n\nSi tu es dans **l'incapacité de partager** ce bon moment avec nous, **utilise la réaction 🟥 afin de libérer ta place !**\n\nA tout de suite !",
+				"Hello,\n\nJe t'envoie ce message pour te rappeler **ton inscription à notre tournoi hebdomadaire !**\nIl aura lieu demain soir sur notre serveur discord : https://discord.gg/SkMSdyTFjd\n\n**Est-ce que tu confirmes ta présence ?**\n\nMerci d'avance de ta réponse, et good luck !",
+				"Hello,\n\nNotre tournoi débute dans **15 minutes !**\nTiens toi prêt et rejoint notre Discord : https://discord.gg/SkMSdyTFjd\n\nSi tu es dans **l'incapacité de partager** ce bon moment avec nous, **utilise la réaction 🟥 afin de libérer ta place !**\n\nA tout de suite !",
 			];
 
 			const id_list = data.player_list.list.map((player) => player.discord_id);
