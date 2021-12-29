@@ -49,18 +49,16 @@ client.once("ready", async () => {
 client.on("messageCreate", async (message) => {
 	if (message.channelId === "924720650608861214") {
 		const { username } = message.author;
-		const { discriminator } = message.author;
-		const { id } = message.author.id;
+		const { discriminator } = parseInt(message.author, 10);
+		const { id } = parseInt(message.author.id, 10);
 
 		const league_name = message.content;
-
-		console.log(message.author);
 
 		const player = {
 			league_name,
 			discord_username: username,
-			tag: "1000",
-			discord_id: "2000",
+			tag: discriminator,
+			discord_id: id,
 		};
 
 		const requestOptions = {
