@@ -22,6 +22,8 @@ export default {
 
 			const { id } = user;
 
+			console.log(id);
+
 			if (id_list.includes(id)) {
 				user.send("blablabla");
 			}
