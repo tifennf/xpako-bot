@@ -79,11 +79,32 @@ client.on("messageCreate", async (message) => {
 				throw "Invalid input";
 			}
 
-			message.react("✅");
-		} catch (error) {
-			console.error(error);
+			await message.react("✅");
+			await message.react("❌");
 
-			message.react("❌");
+			const filter = (reaction, user) => {
+				return ["✅", "❌"].includes(reaction.emoji.name) && user.id === id;
+			};
+
+			message
+				.awaitReactions({ filter, max: 1, time: 60000, errors: ["time"] })
+				.then((collected) => {
+					const reaction = collected.first();
+
+					if (reaction.emoji.name === "❌") {
+						message.reply({
+							content: "Votre inscription est annulée",
+							ephemeral: true,
+						});
+					} else {
+						message.reply({
+							content: "Que voulez-vous ?",
+							ephemeral: true,
+						});
+					}
+				});
+		} catch (_err) {
+			message.react("⛔");
 		}
 	}
 });
