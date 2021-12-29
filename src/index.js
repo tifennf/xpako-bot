@@ -82,21 +82,21 @@ client.on("messageCreate", async (message) => {
 			await message.react("✅");
 			await message.react("❌");
 
-			const filter = (reaction, user) => {
-				return ["✅", "❌"].includes(reaction.emoji.name) && user.id === id;
-			};
+			const collected = await message.awaitReactions();
 
-			message
-				.awaitReactions({ filter, max: 1, time: 60000, errors: ["time"] })
-				.then((collected) => {
-					const reaction = collected.first();
+			const reaction = collected.first();
 
-					if (reaction.emoji.name === "❌") {
-						message.author.dmChannel.send("Votre inscription est annulée");
-					} else {
-						message.reply("hmmm");
-					}
-				});
+			console.log(collected);
+
+			console.log("1");
+
+			if (reaction.emoji.name === "❌") {
+				console.log("2");
+
+				message.author.dmChannel.send("Votre inscription est annulée");
+			} else {
+				message.reply("hmmm");
+			}
 		} catch (_err) {
 			message.react("⛔");
 		}
