@@ -57,7 +57,7 @@ export default {
 			console.error(error);
 
 			interaction.reply({
-				content: "aaaaaa",
+				content: "Erreur...",
 				fetchReply: true,
 			});
 		}
