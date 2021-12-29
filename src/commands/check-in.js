@@ -39,7 +39,7 @@ export default {
 				const { id } = user;
 
 				if (id_list.includes(id)) {
-					const content = message_list[which_message];
+					const content = message_list[which_message - 1];
 
 					user.send(content);
 				}
