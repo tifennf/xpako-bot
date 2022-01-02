@@ -1,5 +1,12 @@
 import fetch from "node-fetch";
 
+const header_print = () => {
+	return "\n============================================================\n Pseudo discord ▶ Pseudo Ing\n============================================================\n";
+};
+
+const get_player_print = (player) =>
+	`${player.discord_name.name}#${player.discord_name.tag} ▶ ${player.league_name}\n`;
+
 const openInscriptions = async (interaction, content, open) => {
 	const action = {
 		open,
@@ -41,10 +48,7 @@ const generate_pools_string = (data) => {
 	const { pool_list } = data.tournament;
 
 	const plist = pool_list.map((pool) => {
-		const player_list = pool.player_list.map(
-			(player) =>
-				`League name: ${player.league_name} |-| Discord name: ${player.discord_name.name}#${player.discord_name.tag}\n`
-		);
+		const player_list = pool.player_list.map(get_player_print);
 
 		const list = player_list.join("\n");
 
@@ -62,7 +66,8 @@ const generate_pools_string = (data) => {
 	}
 
 	const fmt_list =
-		"Liste des pools générées\n============================================================\nLeague name |-| Discord name\n============================================================\n" +
+		"Liste des pools générées" +
+		header_print() +
 		"```\n" +
 		temp_fmt_list +
 		"\n```";
@@ -72,15 +77,7 @@ const generate_pools_string = (data) => {
 const generate_plist_string = (data) => {
 	const { list } = data.player_list;
 
-	const fmt_list = list.map((player) => {
-		const p = `${player.league_name} |-| ${player.discord_name.name}#${player.discord_name.tag}\n`;
-
-		return p;
-	});
-
-	// const temp_fmt_list = plist.join(
-	// 	"\n---------------------------------------------\n"
-	// );
+	const fmt_list = list.map(get_player_print);
 
 	const len = fmt_list.length;
 
@@ -89,7 +86,8 @@ const generate_plist_string = (data) => {
 	}
 
 	const final_fmt_list =
-		"Liste des joueurs inscrits\n============================================================\nLeague name |-| Discord name\n============================================================\n" +
+		"Liste des joueurs inscrits" +
+		header_print() +
 		"```\n" +
 		fmt_list +
 		"\n```";
