@@ -77,7 +77,10 @@ const generate_pools_string = (data) => {
 const generate_plist_string = (data) => {
 	const { list } = data.player_list;
 
+	console.log(list);
+
 	const fmt_list = list.map(get_player_print);
+	console.log(fmt_list);
 
 	const len = fmt_list.length;
 
