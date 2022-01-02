@@ -14,13 +14,13 @@ export default {
 
 			const { data } = body;
 
-			const pools_string = generate_pools_string(data);
+			const content = generate_pools_string(data);
 
-			const content =
-				"Liste des pools générées\n============================================================\n" +
-				"```\n" +
-				pools_string +
-				"\n```";
+			// const content =
+			// 	"Liste des pools générées\n============================================================\n" +
+			// 	"```\n" +
+			// 	pools_string +
+			// 	"\n```";
 
 			interaction.reply({
 				content,
