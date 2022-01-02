@@ -65,7 +65,7 @@ const generate_pools_string = (data) => {
 		return "Aucun joueurs inscrits pour générer les pools";
 	}
 
-	let s = "```\n" + temp_fmt_list + "\n```";
+	let s = "```\n" + header_print() + temp_fmt_list + "\n```";
 
 	const fmt_list = "Liste des pools générées" + s;
 
