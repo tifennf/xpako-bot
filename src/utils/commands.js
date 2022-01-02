@@ -74,13 +74,15 @@ const generate_pools_string = (data) => {
 
 	return fmt_list;
 };
+
+const get_all_pprints = (pstr_list) => {
+	return pstr_list.join("");
+};
+
 const generate_plist_string = (data) => {
 	const { list } = data.player_list;
 
-	console.log(list);
-
-	const fmt_list = list.map(get_player_print);
-	console.log(fmt_list);
+	const fmt_list = get_all_pprints(list.map(get_player_print));
 
 	const len = fmt_list.length;
 
