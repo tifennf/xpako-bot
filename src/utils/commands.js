@@ -67,13 +67,13 @@ const generate_pools_string = (data) => {
 
 	let s = "```\n" + temp_fmt_list + "\n```";
 
-	const fmt_list = "Liste des pools générées" + header_print() + s;
+	const fmt_list = "Liste des pools générées" + s;
 
 	return fmt_list;
 };
 
 const get_all_pprints = (pstr_list) => {
-	return pstr_list.join("");
+	return header_print().concat(pstr_list.join(""));
 };
 
 const generate_plist_string = (data) => {
@@ -88,11 +88,7 @@ const generate_plist_string = (data) => {
 	}
 
 	const final_fmt_list =
-		"Liste des joueurs inscrits" +
-		header_print() +
-		"```\n" +
-		fmt_list +
-		"\n```";
+		"Liste des joueurs inscrits" + "```\n" + fmt_list + "\n```";
 
 	return final_fmt_list;
 };
