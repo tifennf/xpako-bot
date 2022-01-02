@@ -43,7 +43,7 @@ const generate_pools_string = (data) => {
 	const plist = pool_list.map((pool) => {
 		const player_list = pool.player_list.map(
 			(player) =>
-				`League name: ${player.league_name} | Discord name: ${player.discord_name.name}#${player.discord_name.tag}`
+				`League name: ${player.league_name} ||| Discord name: ${player.discord_name.name}#${player.discord_name.tag}\n`
 		);
 
 		const list = player_list.join("\n");
@@ -73,7 +73,7 @@ const generate_plist_string = (data) => {
 	const { list } = data.player_list;
 
 	const fmt_list = list.map((player) => {
-		const p = `${player.league_name} | ${player.discord_name.name}#${player.discord_name.tag}`;
+		const p = `${player.league_name} ||| ${player.discord_name.name}#${player.discord_name.tag}\n`;
 
 		return p;
 	});
@@ -89,7 +89,7 @@ const generate_plist_string = (data) => {
 	}
 
 	const final_fmt_list =
-		"Liste des joueurs inscrits\n============================================================\nLeague name | Discord name\n============================================================\n" +
+		"Liste des joueurs inscrits\n============================================================\nLeague name ||| Discord name\n============================================================\n" +
 		"```\n" +
 		fmt_list +
 		"\n```";
