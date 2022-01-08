@@ -43,13 +43,15 @@ export default {
 
 				// 	await user.send(content);
 				// }
-				// if (user) {
-				// 	const content = message_list[which_message - 1];
+				if (id === "255103821657669635") {
+					const content = message_list[which_message - 1];
 
-				// 	const msg = await user.send(content);
-				// }
+					const msg = await user.send(content);
 
-				console.log(user);
+					console.log(msg);
+				}
+
+				// console.log(user);
 			});
 
 			interaction.reply("Check-in fait");
