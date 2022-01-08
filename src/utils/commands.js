@@ -235,6 +235,8 @@ const unregister = async (interaction) => {
 		discord_id: id,
 	};
 
+	console.log(player);
+
 	const requestOptions = {
 		method: "DELETE",
 		headers: {
