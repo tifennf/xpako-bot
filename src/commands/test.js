@@ -45,17 +45,8 @@ export default {
 					// const content = message_list[which_message - 1];
 
 					await user.send(message.header);
-					const res = await user.send(message.footer);
-
-					// const collector = res.createMessageComponentCollector({
-					// 	componentType: "BUTTON",
-					// 	time: 15000,
-					// });
-
-					// console.log(collector);
+					await user.send(message.footer);
 				}
-
-				// console.log(user);
 			});
 
 			interaction.reply("Check-in fait");

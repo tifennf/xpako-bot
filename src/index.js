@@ -111,6 +111,8 @@ client.on("interactionCreate", (interaction) => {
 	}
 
 	console.log(interaction);
+
+	interaction.reply("OKOKOK");
 });
 
 client.login(token);
