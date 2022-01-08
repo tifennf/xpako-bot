@@ -80,27 +80,33 @@ client.on("messageCreate", async (message) => {
 				throw "Invalid input";
 			}
 
-			message.react("✅");
+			const info = new MessageEmbed()
+				.setTitle("Inscription validée !")
+				.setColor("EB1EB5")
+				.setDescription(
+					"Si jamais tu n'as pas enregistré le bon pseudo ou que tu veux annuler ton inscription, appuie sur le bouton rouge juste en-dessous."
+				)
+				.addField("Pseudo LoL/TFT", league_name);
+
+			const msg = {
+				embeds: [info],
+				components: [unregister_button],
+			};
+
+			await message.react("✅");
+			message.author.send(msg);
 		} catch (err) {
-			message.react("⛔");
+			const info = new MessageEmbed()
+				.setTitle("Inscription impossible !")
+				.setColor("EB1EB5")
+				.setDescription("Tu es déjà inscrit.");
+
+			const msg = {
+				embeds: [info],
+			};
+			await message.react("⛔");
+			message.author.send(msg);
 		}
-	}
-
-	if (message.channelId === "927560494473175061") {
-		const info = new MessageEmbed()
-			.setTitle("Inscription validée !")
-			.setColor("EB1EB5")
-			.setDescription(
-				"Si jamais tu n'as pas enregistré le bon pseudo ou que tu veux annuler ton inscription, appuie sur le bouton rouge juste en-dessous."
-			)
-			.addField("Pseudo LoL/TFT", "xxx");
-
-		const msg = {
-			embeds: [info],
-			components: [unregister_button],
-		};
-
-		message.author.send(msg);
 	}
 });
 
