@@ -1,6 +1,6 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
 
-import { unregister } from "../utils/commands";
+import { unregister } from "../utils/commands.js";
 
 export default {
 	data: new SlashCommandBuilder()

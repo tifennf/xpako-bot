@@ -1,5 +1,4 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
-import { MessageEmbed } from "discord.js";
 import { get_infos, message_1, message_2 } from "../utils/commands.js";
 
 export default {
