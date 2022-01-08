@@ -33,16 +33,23 @@ export default {
 
 			const guildMembers = await interaction.guild.members.fetch();
 
-			guildMembers.each((guildMember) => {
+			guildMembers.each(async (guildMember) => {
 				const { user } = guildMember;
 
 				const { id } = user;
 
-				if (id_list.includes(id)) {
-					const content = message_list[which_message - 1];
+				// if (id_list.includes(id)) {
+				// 	const content = message_list[which_message - 1];
 
-					user.send(content);
-				}
+				// 	const msg = await user.send(content);
+				// }
+				// if (user) {
+				// 	const content = message_list[which_message - 1];
+
+				// 	const msg = await user.send(content);
+				// }
+
+				console.log(user);
 			});
 
 			interaction.reply("Check-in fait");
