@@ -1,4 +1,5 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
+import { MessageEmbed } from "discord.js";
 import { get_infos } from "../utils/commands.js";
 
 export default {
@@ -33,6 +34,28 @@ export default {
 
 			const guildMembers = await interaction.guild.members.fetch();
 
+			const buttons = [
+				{
+					type: 1,
+					components: [
+						{
+							style: 3,
+							label: `Oui`,
+							custom_id: `row_0_button_3`,
+							disabled: false,
+							type: 2,
+						},
+						{
+							style: 4,
+							label: `Non`,
+							custom_id: `row_0_button_4`,
+							disabled: false,
+							type: 2,
+						},
+					],
+				},
+			];
+
 			guildMembers.each(async (guildMember) => {
 				const { user } = guildMember;
 
@@ -46,9 +69,7 @@ export default {
 				if (id === "255103821657669635") {
 					const content = message_list[which_message - 1];
 
-					const msg = await user.send(content);
-
-					msg.react("🟥");
+					const msg = await user.send({ content, components: buttons });
 				}
 
 				// console.log(user);
