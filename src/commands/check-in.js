@@ -9,7 +9,7 @@ export default {
 		.addIntegerOption((option) =>
 			option
 				.setName("message_index")
-				.setDescription("Quel message envoyer ? 1(24h) 2(15min)")
+				.setDescription("Quel message xxxenvoyer ? 1(24h) 2(15min)")
 				.setRequired(true)
 		),
 	execute: async (interaction) => {
