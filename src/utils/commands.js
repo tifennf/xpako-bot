@@ -150,7 +150,7 @@ const message_1 = {
 		"Hello,\n\nJe t'envoie ce message pour te rappeler **ton inscription à notre tournoi hebdomadaire !**\nIl aura lieu demain soir sur notre serveur discord : https://discord.gg/SkMSdyTFjd\n\nMerci d'avance de ta réponse, et good luck !",
 	embeds: [
 		{
-			color: "ffffff",
+			color: "800080",
 			title: "Est-ce que tu confirmes ta présence ?",
 		},
 	],
@@ -179,10 +179,10 @@ const message_1 = {
 
 const message_2 = {
 	content:
-		"Hello,\n\nNotre tournoi débute dans **15 minutes !**\nTiens toi prêt et rejoint notre Discord : https://discord.gg/SkMSdyTFjd\n\nSi tu es dans **l'incapacité de partager** ce bon moment avec nous, **utilise la réaction 🟥 afin de libérer ta place !**\n\nA tout de suite !",
+		"Hello,\n\nNotre tournoi débute dans **15 minutes !**\nTiens toi prêt et rejoint notre Discord : https://discord.gg/SkMSdyTFjd\n\nSi tu es dans **l'incapacité de partager** ce bon moment avec nous, **clique sur le bouton rouge en bas !**\n\nA tout de suite !",
 	embeds: [
 		{
-			color: "ffffff",
+			color: "800080",
 			title: "Est-ce que tu confirmes ta présence ?",
 		},
 	],
