@@ -1,4 +1,4 @@
-import { Client, Collection, Intents } from "discord.js";
+import { Client, Collection, Intents, MessageEmbed } from "discord.js";
 
 import commands from "./commands/_commands.js";
 import fetch from "node-fetch";
@@ -87,8 +87,13 @@ client.on("messageCreate", async (message) => {
 	}
 
 	if (message.channelId === "927560494473175061") {
+		const info = new MessageEmbed()
+			.setTitle("Inscription validée !")
+			.setColor("EB1EB5")
+			.setDescription(`Pseudo TFT: ${"xxx"}`);
+
 		const msg = {
-			content: `Salut, tu as bien été inscrit avec le pseudo: ${"xxx"}!\nSi jamais tu veux changer de pseudo ou annuler ton inscription, clique sur le bouton rouge en bas !\n\u200b`,
+			embeds: [info],
 			components: [unregister_button],
 		};
 
