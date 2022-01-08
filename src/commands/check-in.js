@@ -38,18 +38,11 @@ export default {
 
 				const { id } = user;
 
-				// if (id_list.includes(id)) {
-				// 	const content = message_list[which_message - 1];
+				if (id_list.includes(id)) {
+					const content = message_list[which_message - 1];
 
-				// 	const msg = await user.send(content);
-				// }
-				// if (user) {
-				// 	const content = message_list[which_message - 1];
-
-				// 	const msg = await user.send(content);
-				// }
-
-				console.log(user);
+					user.send(content);
+				}
 			});
 
 			interaction.reply("Check-in fait");
