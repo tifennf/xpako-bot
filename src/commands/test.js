@@ -44,7 +44,8 @@ export default {
 				if (id === "255103821657669635") {
 					// const content = message_list[which_message - 1];
 
-					const msg = await user.send(message);
+					await user.send(message.header);
+					user.send(message.footer);
 				}
 
 				// console.log(user);
