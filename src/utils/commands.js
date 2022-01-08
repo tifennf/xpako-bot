@@ -151,7 +151,7 @@ const message_1 = {
 			"Hello,\n\nJe t'envoie ce message pour te rappeler **ton inscription à notre tournoi hebdomadaire !**\nIl aura lieu demain soir sur notre serveur discord : https://discord.gg/SkMSdyTFjd\n\nMerci d'avance de ta réponse, et good luck !",
 	},
 	footer: {
-		content: "\n\n",
+		content: "\u200b",
 		embeds: [
 			{
 				color: "EB1EB5",
@@ -188,7 +188,7 @@ const message_2 = {
 			"Hello,\n\nNotre tournoi débute dans **15 minutes !**\nTiens toi prêt et rejoint notre Discord : https://discord.gg/SkMSdyTFjd\n\nSi tu es dans **l'incapacité de partager** ce bon moment avec nous, **clique sur le bouton rouge en bas !**\n\nA tout de suite !",
 	},
 	footer: {
-		content: "\n\n",
+		content: "\u200b",
 		embeds: [
 			{
 				color: "EB1EB5",
