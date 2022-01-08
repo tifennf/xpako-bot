@@ -45,7 +45,9 @@ export default {
 					// const content = message_list[which_message - 1];
 
 					await user.send(message.header);
-					user.send(message.footer);
+					const res = await user.send(message.footer);
+
+					console.log(res);
 				}
 
 				// console.log(user);
