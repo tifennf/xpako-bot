@@ -90,7 +90,10 @@ client.on("messageCreate", async (message) => {
 		const info = new MessageEmbed()
 			.setTitle("Inscription validée !")
 			.setColor("EB1EB5")
-			.setDescription(`Pseudo TFT: ${"xxx"}`);
+			.setDescription(
+				"Si jamais tu n'as pas enregistré le bon pseudo ou que tu veux annuler ton inscription, appuie sur le bouton rouge juste en-dessous."
+			)
+			.addField("Pseudo LoL/TFT", "xxx");
 
 		const msg = {
 			embeds: [info],
