@@ -225,7 +225,7 @@ const unregister = async (interaction) => {
 	const { username } = user;
 
 	const discriminator = parseInt(user.discriminator, 10);
-	const id = parseInt(user.id, 10);
+	const { id } = user;
 	const league_name = "xxx";
 
 	const player = {
