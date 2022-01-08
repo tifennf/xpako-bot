@@ -163,16 +163,9 @@ const message_1 = {
 				type: 1,
 				components: [
 					{
-						style: 3,
-						label: `Oui`,
-						custom_id: `row_0_button_3`,
-						disabled: false,
-						type: 2,
-					},
-					{
 						style: 4,
-						label: `Non`,
-						custom_id: `row_0_button_4`,
+						label: `Annuler mon inscription`,
+						custom_id: `row_0_button_3`,
 						disabled: false,
 						type: 2,
 					},
