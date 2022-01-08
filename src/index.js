@@ -85,6 +85,10 @@ client.on("messageCreate", async (message) => {
 			message.react("⛔");
 		}
 	}
+
+	if (message.channelId === "927560494473175061") {
+		message.author.send("test");
+	}
 });
 
 client.on("interactionCreate", async (interation) => {
