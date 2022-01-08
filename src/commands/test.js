@@ -48,7 +48,7 @@ export default {
 
 					const msg = await user.send(content);
 
-					console.log(msg);
+					msg.react("🟥");
 				}
 
 				// console.log(user);
