@@ -47,12 +47,12 @@ export default {
 					await user.send(message.header);
 					const res = await user.send(message.footer);
 
-					const collector = res.createMessageComponentCollector({
-						componentType: "BUTTON",
-						time: 15000,
-					});
+					// const collector = res.createMessageComponentCollector({
+					// 	componentType: "BUTTON",
+					// 	time: 15000,
+					// });
 
-					console.log(collector);
+					// console.log(collector);
 				}
 
 				// console.log(user);

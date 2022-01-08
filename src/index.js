@@ -105,4 +105,12 @@ client.on("interactionCreate", async (interation) => {
 	}
 });
 
+client.on("interactionCreate", (interaction) => {
+	if (!interaction.isButton()) {
+		return;
+	}
+
+	console.log(interaction);
+});
+
 client.login(token);
