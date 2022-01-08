@@ -146,11 +146,16 @@ const get_command_options = (interaction) => {
 };
 
 const unregister_button = {
-	style: 4,
-	label: `Annuler mon inscription`,
-	custom_id: `row_0_button_3`,
-	disabled: false,
-	type: 2,
+	type: 1,
+	components: [
+		{
+			style: 4,
+			label: `Annuler mon inscription`,
+			custom_id: `row_0_button_3`,
+			disabled: false,
+			type: 2,
+		},
+	],
 };
 
 const message_1 = {
