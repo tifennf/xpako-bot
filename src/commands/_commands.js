@@ -8,6 +8,7 @@ import init from "./init.js";
 import unregister from "./unregister.js";
 import save from "./save.js";
 import reload from "./reload.js";
+import test from "./test.js";
 
 export default [
 	open,
@@ -20,4 +21,5 @@ export default [
 	unregister,
 	save,
 	reload,
+	test,
 ];

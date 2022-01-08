@@ -3,7 +3,7 @@ import { get_infos } from "../utils/commands.js";
 
 export default {
 	data: new SlashCommandBuilder()
-		.setName("check-in")
+		.setName("test")
 		.setDescription("Envoi un message privé de rappel aux joueurs inscrits")
 		.setDefaultPermission(false)
 		.addIntegerOption((option) =>
@@ -38,11 +38,18 @@ export default {
 
 				const { id } = user;
 
-				if (id_list.includes(id)) {
-					const content = message_list[which_message - 1];
+				// if (id_list.includes(id)) {
+				// 	const content = message_list[which_message - 1];
 
-					user.send(content);
-				}
+				// 	await user.send(content);
+				// }
+				// if (user) {
+				// 	const content = message_list[which_message - 1];
+
+				// 	const msg = await user.send(content);
+				// }
+
+				console.log(user);
 			});
 
 			interaction.reply("Check-in fait");
