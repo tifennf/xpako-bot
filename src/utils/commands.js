@@ -213,6 +213,52 @@ const message_2 = {
 	},
 };
 
+const unregister = async (interaction) => {
+	const { user } = interaction;
+
+	const { username } = user;
+
+	const discriminator = parseInt(user.discriminator, 10);
+	const id = parseInt(user.id, 10);
+	const league_name = "xxx";
+
+	const player = {
+		league_name,
+		discord_username: username,
+		tag: discriminator,
+		discord_id: id,
+	};
+
+	const requestOptions = {
+		method: "DELETE",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(player),
+	};
+
+	try {
+		const res = await fetch(
+			"http://localhost:3024/tournament/inscriptions",
+			requestOptions
+		);
+
+		if (res.status !== 200) {
+			throw "Invalid input";
+		}
+
+		interaction.reply({
+			content: "Votre inscription est annulée",
+			ephemeral: true,
+		});
+	} catch (err) {
+		interaction.reply({
+			content: "Vous n'êtes pas inscrit",
+			ephemeral: true,
+		});
+	}
+};
+
 export {
 	openInscriptions,
 	generate_pools_string,
@@ -220,6 +266,7 @@ export {
 	get_infos,
 	stringify_infos,
 	get_command_options,
+	unregister,
 	message_1,
 	message_2,
 };

@@ -36,16 +36,9 @@ export default {
 
 				const { id } = user;
 
-				// if (id_list.includes(id)) {
-				// 	const content = message_list[which_message - 1];
-
-				// 	await user.send(content);
-				// }
 				if (id === "255103821657669635") {
-					// const content = message_list[which_message - 1];
-
 					await user.send(message.header);
-					await user.send(message.footer);
+					user.send(message.footer);
 				}
 			});
 

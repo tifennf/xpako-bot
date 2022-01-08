@@ -3,6 +3,7 @@ import { Client, Collection, Intents } from "discord.js";
 import commands from "./commands/_commands.js";
 import fetch from "node-fetch";
 import config from "../config.js";
+import { unregister } from "./utils/commands.js";
 
 const { token, guildId } = config;
 
@@ -105,14 +106,12 @@ client.on("interactionCreate", async (interation) => {
 	}
 });
 
-client.on("interactionCreate", (interaction) => {
+client.on("interactionCreate", async (interaction) => {
 	if (!interaction.isButton()) {
 		return;
 	}
 
-	console.log(interaction);
-
-	interaction.reply("OKOKOK");
+	await unregister(interaction);
 });
 
 client.login(token);
