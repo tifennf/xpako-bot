@@ -145,6 +145,14 @@ const get_command_options = (interaction) => {
 	return options.map((element) => element.value);
 };
 
+const unregister_button = {
+	style: 4,
+	label: `Annuler mon inscription`,
+	custom_id: `row_0_button_3`,
+	disabled: false,
+	type: 2,
+};
+
 const message_1 = {
 	header: {
 		content:
@@ -262,4 +270,5 @@ export {
 	unregister,
 	message_1,
 	message_2,
+	unregister_button,
 };

@@ -3,7 +3,7 @@ import { Client, Collection, Intents } from "discord.js";
 import commands from "./commands/_commands.js";
 import fetch from "node-fetch";
 import config from "../config.js";
-import { unregister } from "./utils/commands.js";
+import { unregister, unregister_button } from "./utils/commands.js";
 
 const { token, guildId } = config;
 
@@ -87,7 +87,12 @@ client.on("messageCreate", async (message) => {
 	}
 
 	if (message.channelId === "927560494473175061") {
-		message.author.send("test");
+		const message = {
+			content: "test",
+			components: [unregister_button],
+		};
+
+		message.author.send(message);
 	}
 });
 
