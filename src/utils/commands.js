@@ -253,15 +253,9 @@ const unregister = async (interaction) => {
 			throw "Invalid input";
 		}
 
-		interaction.reply({
-			content: "Votre inscription est annulée",
-			ephemeral: true,
-		});
+		interaction.reply("Votre inscription est annulée");
 	} catch (err) {
-		interaction.reply({
-			content: "Vous n'êtes pas inscrit",
-			ephemeral: true,
-		});
+		interaction.reply("Vous n'êtes pas inscrit");
 	}
 };
 
