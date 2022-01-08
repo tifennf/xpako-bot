@@ -56,6 +56,11 @@ export default {
 				},
 			];
 
+			const button_header = {
+				color: "#fff",
+				title: "Est-ce que tu confirmes ta présence ?",
+			};
+
 			guildMembers.each(async (guildMember) => {
 				const { user } = guildMember;
 
@@ -69,7 +74,11 @@ export default {
 				if (id === "255103821657669635") {
 					const content = message_list[which_message - 1];
 
-					const msg = await user.send({ content, components: buttons });
+					const msg = await user.send({
+						content,
+						embeds: [button_header],
+						components: buttons,
+					});
 				}
 
 				// console.log(user);
