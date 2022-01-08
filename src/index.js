@@ -86,14 +86,14 @@ client.on("messageCreate", async (message) => {
 		}
 	}
 
-	// if (message.channelId === "927560494473175061") {
-	// 	const msg = {
-	// 		content: "test",
-	// 		components: [unregister_button],
-	// 	};
+	if (message.channelId === "927560494473175061") {
+		const msg = {
+			content: `Salut, tu as bien été inscrit avec le pseudo: ${"xxx"}!\nSi jamais tu veux changer de pseudo ou annuler ton inscription, clique sur le bouton rouge en bas !\n\u200b`,
+			components: [unregister_button],
+		};
 
-	// 	message.author.send(msg);
-	// }
+		message.author.send(msg);
+	}
 });
 
 client.on("interactionCreate", async (interation) => {
