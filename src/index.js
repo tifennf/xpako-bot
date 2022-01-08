@@ -87,12 +87,12 @@ client.on("messageCreate", async (message) => {
 	}
 
 	if (message.channelId === "927560494473175061") {
-		const message = {
+		const msg = {
 			content: "test",
 			components: [unregister_button],
 		};
 
-		message.author.send(message);
+		message.author.send(msg);
 	}
 });
 
