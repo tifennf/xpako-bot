@@ -36,8 +36,8 @@ export default {
 				const { id } = user;
 
 				if (id === "255103821657669635") {
-					await user.send({ content: message.header, ephemeral: true });
-					user.send({ content: message.footer, ephemeral: true });
+					await user.send(message.header);
+					user.send(message.footer);
 				}
 			});
 
