@@ -1,5 +1,8 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
 import fetch from "node-fetch";
+import config from "../../config";
+
+const { ip } = config;
 
 export default {
 	data: new SlashCommandBuilder()
@@ -11,7 +14,7 @@ export default {
 			"Sauvegarde des joueurs inscrits effectuée, /reload pour la charger";
 
 		try {
-			const res = await fetch("http://localhost:3024/save");
+			const res = await fetch(ip + "/save");
 
 			if (res.status !== 200) {
 				throw "Error...";

@@ -1,6 +1,8 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
 import fetch from "node-fetch";
+import config from "../../config";
 
+const { ip } = config;
 export default {
 	data: new SlashCommandBuilder()
 		.setName("init")
@@ -37,10 +39,7 @@ export default {
 		};
 
 		try {
-			const res = await fetch(
-				"http://localhost:3024/tournament",
-				requestOptions
-			);
+			const res = await fetch(ip + "/tournament", requestOptions);
 			const body = await res.json();
 
 			const { max_amount } = body.data.player_list;

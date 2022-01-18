@@ -1,5 +1,7 @@
 import fetch from "node-fetch";
+import config from "../../config";
 
+const { ip } = config;
 const header_print = () => {
 	return "\n============================================================\n Pseudo discord ▶ Pseudo Ing\n============================================================\n";
 };
@@ -22,7 +24,7 @@ const openInscriptions = async (interaction, content, open) => {
 
 	try {
 		const res = await fetch(
-			"http://localhost:3024/tournament/inscriptions/status",
+			ip + "/tournament/inscriptions/status",
 			requestOptions
 		);
 
@@ -102,7 +104,7 @@ const resolvePlayerList = (data) => {
 };
 
 const get_infos = async () => {
-	const res = await fetch("http://localhost:3024/info");
+	const res = await fetch(ip + "/info");
 	const body = await res.json();
 
 	const { data } = body;
@@ -170,10 +172,7 @@ const unregister = async (interaction) => {
 	};
 
 	try {
-		const res = await fetch(
-			"http://localhost:3024/tournament/inscriptions",
-			requestOptions
-		);
+		const res = await fetch(ip + "/tournament/inscriptions", requestOptions);
 
 		if (res.status !== 200) {
 			throw "Invalid input";
@@ -209,10 +208,7 @@ const remove_player = async (interaction) => {
 	};
 
 	try {
-		const res = await fetch(
-			"http://localhost:3024/tournament/inscriptions",
-			requestOptions
-		);
+		const res = await fetch(ip + "/tournament/inscriptions", requestOptions);
 
 		if (res.status !== 200) {
 			throw "Invalid input";

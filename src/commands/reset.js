@@ -1,5 +1,8 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
 import fetch from "node-fetch";
+import config from "../../config";
+
+const { ip } = config;
 
 export default {
 	data: new SlashCommandBuilder()
@@ -7,7 +10,7 @@ export default {
 		.setDescription("Rénitialise la liste des joueurs inscrits")
 		.setDefaultPermission(false),
 	execute: async (interaction) => {
-		await fetch("http://localhost:3024/tournament/reset");
+		await fetch(ip + "/tournament/reset");
 
 		const content = "Tournoi rénitialisé";
 

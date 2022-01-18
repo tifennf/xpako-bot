@@ -1,7 +1,9 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
 import { generate_pools_string } from "../utils/commands.js";
 import fetch from "node-fetch";
+import config from "../../config";
 
+const { ip } = config;
 export default {
 	data: new SlashCommandBuilder()
 		.setName("start")
@@ -9,7 +11,7 @@ export default {
 		.setDefaultPermission(false),
 	execute: async (interaction) => {
 		try {
-			const res = await fetch("http://localhost:3024/tournament");
+			const res = await fetch(ip + "/tournament");
 			const body = await res.json();
 
 			const { data } = body;
