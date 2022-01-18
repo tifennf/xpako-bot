@@ -214,9 +214,9 @@ const remove_player = async (interaction) => {
 			throw "Invalid input";
 		}
 
-		interaction.reply("Votre inscription est annulée");
+		interaction.reply("Joueur supprimé des inscrits");
 	} catch (err) {
-		interaction.reply("Vous n'êtes pas inscrit");
+		interaction.reply("Joueur pas inscrit");
 	}
 };
 
