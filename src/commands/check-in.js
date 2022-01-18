@@ -1,5 +1,6 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
-import { get_infos, message_1, message_2 } from "../utils/commands.js";
+import { get_infos } from "../utils/commands.js";
+import { message_1, message_2 } from "../utils/messages.js";
 
 export default {
 	data: new SlashCommandBuilder()

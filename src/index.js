@@ -3,7 +3,8 @@ import { Client, Collection, Intents, MessageEmbed } from "discord.js";
 import commands from "./commands/_commands.js";
 import fetch from "node-fetch";
 import config from "../config.js";
-import { unregister, unregister_button } from "./utils/commands.js";
+import { unregister } from "./utils/commands.js";
+import { unregister_button } from "./utils/messages.js";
 
 const { token, guildId } = config;
 

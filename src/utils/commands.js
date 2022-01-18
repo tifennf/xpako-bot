@@ -145,80 +145,6 @@ const get_command_options = (interaction) => {
 	return options.map((element) => element.value);
 };
 
-const unregister_button = {
-	type: 1,
-	components: [
-		{
-			style: 4,
-			label: `Annuler mon inscription`,
-			custom_id: `row_0_button_3`,
-			disabled: false,
-			type: 2,
-		},
-	],
-};
-
-const message_1 = {
-	header: {
-		content:
-			"Hello,\n\nJe t'envoie ce message pour te rappeler **ton inscription à notre tournoi hebdomadaire !**\nIl aura lieu demain soir sur notre serveur discord : https://discord.gg/SkMSdyTFjd\n\nMerci d'avance de ta réponse, et good luck !",
-	},
-	footer: {
-		content: "\u200b",
-		embeds: [
-			{
-				color: "EB1EB5",
-				title: "Est-ce que tu confirmes ta présence ?",
-			},
-		],
-		components: [
-			{
-				type: 1,
-				components: [
-					{
-						style: 4,
-						label: `Annuler mon inscription`,
-						custom_id: `row_0_button_3`,
-						disabled: false,
-						type: 2,
-					},
-				],
-			},
-		],
-	},
-};
-
-const message_2 = {
-	header: {
-		content:
-			"Hello,\n\nNotre tournoi débute dans **15 minutes !**\nTiens toi prêt et rejoint notre Discord : https://discord.gg/SkMSdyTFjd\n\nSi tu es dans **l'incapacité de partager** ce bon moment avec nous, **clique sur le bouton rouge en bas !**\n\nA tout de suite !",
-	},
-	footer: {
-		content: "\u200b",
-		embeds: [
-			{
-				color: "EB1EB5",
-				title: "Est-ce que tu confirmes ta présence ?",
-			},
-		],
-
-		components: [
-			{
-				type: 1,
-				components: [
-					{
-						style: 4,
-						label: `Annuler mon inscription`,
-						custom_id: `row_0_button_3`,
-						disabled: false,
-						type: 2,
-					},
-				],
-			},
-		],
-	},
-};
-
 const unregister = async (interaction) => {
 	const { user } = interaction;
 
@@ -226,6 +152,45 @@ const unregister = async (interaction) => {
 
 	const discriminator = parseInt(user.discriminator, 10);
 	const { id } = user;
+	const league_name = "xxx";
+
+	const player = {
+		league_name,
+		discord_username: username,
+		tag: discriminator,
+		discord_id: id,
+	};
+
+	const requestOptions = {
+		method: "DELETE",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(player),
+	};
+
+	try {
+		const res = await fetch(
+			"http://localhost:3024/tournament/inscriptions",
+			requestOptions
+		);
+
+		if (res.status !== 200) {
+			throw "Invalid input";
+		}
+
+		interaction.reply("Votre inscription est annulée");
+	} catch (err) {
+		interaction.reply("Vous n'êtes pas inscrit");
+	}
+};
+const remove_player = async (interaction) => {
+	const options = interaction.options._hoistedOptions;
+
+	const username = "xxx";
+	const discriminator = 0;
+
+	const id = options[0].value;
 	const league_name = "xxx";
 
 	const player = {
@@ -267,7 +232,5 @@ export {
 	stringify_infos,
 	get_command_options,
 	unregister,
-	message_1,
-	message_2,
-	unregister_button,
+	remove_player,
 };
