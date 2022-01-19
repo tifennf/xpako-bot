@@ -39,6 +39,11 @@ client.once("ready", async () => {
 				type: "ROLE",
 				permission: true,
 			},
+			{
+				id: "396861921577533440",
+				type: "ROLE",
+				permission: true,
+			},
 		];
 
 		await cmd.permissions.set({

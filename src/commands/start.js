@@ -1,7 +1,7 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
 import { generate_pools_string } from "../utils/commands.js";
 import fetch from "node-fetch";
-import config from "../../config";
+import config from "../../config.js";
 
 const { ip } = config;
 export default {

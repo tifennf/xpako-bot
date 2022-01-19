@@ -1,6 +1,6 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
 import fetch from "node-fetch";
-import config from "../../config";
+import config from "../../config.js";
 
 const { ip } = config;
 

@@ -1,5 +1,5 @@
 import fetch from "node-fetch";
-import config from "../../config";
+import config from "../../config.js";
 
 const { ip } = config;
 const header_print = () => {
@@ -78,10 +78,27 @@ const get_all_pprints = (pstr_list) => {
 	return header_print().concat(pstr_list.join(""));
 };
 
+// const clean_list = (list) => {
+// 	let j = 0;
+
+// 	for (let i = 1; i < list.length; i++) {
+
+// 		if (list[j].discord_id === list[i].discord_id) {
+// 			list.
+// 		}
+
+// 	}
+// };
+
 const generate_plist_string = (data) => {
 	const { list } = data.player_list;
 
-	const fmt_list = get_all_pprints(list.map(get_player_print));
+	const fmt_list = get_all_pprints(
+		list
+			.filter((player) => player.discord_id !== "2n+1")
+
+			.map(get_player_print)
+	);
 
 	const len = fmt_list.length;
 
@@ -105,6 +122,7 @@ const resolvePlayerList = (data) => {
 
 const get_infos = async () => {
 	const res = await fetch(ip + "/info");
+
 	const body = await res.json();
 
 	const { data } = body;
