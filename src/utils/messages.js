@@ -1,15 +1,11 @@
 const unregister_button = {
-	type: 1,
-	components: [
-		{
-			style: 4,
-			label: `Annuler mon inscription`,
-			custom_id: `row_0_button_3`,
-			disabled: false,
-			type: 2,
-		},
-	],
+	style: 4,
+	label: `Annuler mon inscription`,
+	custom_id: `row_0_button_3`,
+	disabled: false,
+	type: 2,
 };
+
 const yes_button = {
 	style: 3,
 	label: `Oui`,
@@ -35,13 +31,14 @@ const message_1 = {
 		embeds: [
 			{
 				color: "EB1EB5",
-				title: "Est-ce que tu confirmes ta présence ?",
+				title:
+					"Si jamais, tu ne pourras être présent, tu peux te désinscrire avec ce bouton à tout moment",
 			},
 		],
 		components: [
 			{
 				type: 1,
-				components: [yes_button, no_button],
+				components: [unregister_button],
 			},
 		],
 	},
@@ -64,15 +61,7 @@ const message_2 = {
 		components: [
 			{
 				type: 1,
-				components: [
-					{
-						style: 4,
-						label: `Annuler mon inscription`,
-						custom_id: `row_0_button_3`,
-						disabled: false,
-						type: 2,
-					},
-				],
+				components: [unregister_button],
 			},
 		],
 	},
