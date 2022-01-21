@@ -35,14 +35,10 @@ export default {
 
 				const { id } = user;
 
-				if (id === "255103821657669635") {
+				if (id_list.includes(id)) {
 					await user.send(message.header);
 					user.send(message.footer);
 				}
-				// if (id_list.includes(id)) {
-				// 	await user.send(message.header);
-				// 	user.send(message.footer);
-				// }
 			});
 
 			interaction.reply("Check-in fait");
