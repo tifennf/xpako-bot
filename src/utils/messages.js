@@ -1,3 +1,9 @@
+const unregister_embed = {
+	color: "EB1EB5",
+	title:
+		"Si jamais, tu ne pourras être présent, tu peux te désinscrire avec ce bouton à tout moment",
+};
+
 const unregister_button = {
 	style: 4,
 	label: `Annuler mon inscription`,
@@ -28,13 +34,7 @@ const message_1 = {
 	},
 	footer: {
 		content: "\u200b",
-		embeds: [
-			{
-				color: "EB1EB5",
-				title:
-					"Si jamais, tu ne pourras être présent, tu peux te désinscrire avec ce bouton à tout moment",
-			},
-		],
+		embeds: [unregister_embed],
 		components: [
 			{
 				type: 1,
@@ -51,12 +51,7 @@ const message_2 = {
 	},
 	footer: {
 		content: "\u200b",
-		embeds: [
-			{
-				color: "EB1EB5",
-				title: "Est-ce que tu confirmes ta présence ?",
-			},
-		],
+		embeds: [unregister_embed],
 
 		components: [
 			{
