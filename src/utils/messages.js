@@ -38,7 +38,10 @@ const message_1 = {
 				title: "Est-ce que tu confirmes ta présence ?",
 			},
 		],
-		components: [yes_button, no_button],
+		components: {
+			type: 1,
+			components: [yes_button, no_button],
+		},
 	},
 };
 
