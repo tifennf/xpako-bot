@@ -1,7 +1,6 @@
 const unregister_embed = {
 	color: "EB1EB5",
-	title:
-		"Si jamais, tu ne pourras être présent, tu peux te désinscrire avec ce bouton à tout moment",
+	title: "Si tu ne pourras pas être présent, clique sur ce bouton",
 };
 
 const unregister_button = {
