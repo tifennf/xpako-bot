@@ -10,6 +10,30 @@ const unregister_button = {
 		},
 	],
 };
+const yes_button = {
+	type: 1,
+	components: [
+		{
+			style: 3,
+			label: `Oui`,
+			custom_id: `yes_button`,
+			disabled: false,
+			type: 2,
+		},
+	],
+};
+const no_button = {
+	type: 1,
+	components: [
+		{
+			style: 4,
+			label: `Non`,
+			custom_id: `no_button`,
+			disabled: false,
+			type: 2,
+		},
+	],
+};
 
 const message_1 = {
 	header: {
@@ -24,20 +48,7 @@ const message_1 = {
 				title: "Est-ce que tu confirmes ta présence ?",
 			},
 		],
-		components: [
-			{
-				type: 1,
-				components: [
-					{
-						style: 4,
-						label: `Annuler mon inscription`,
-						custom_id: `row_0_button_3`,
-						disabled: false,
-						type: 2,
-					},
-				],
-			},
-		],
+		components: [yes_button, no_button],
 	},
 };
 

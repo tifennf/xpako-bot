@@ -140,6 +140,8 @@ client.on("interactionCreate", async (interaction) => {
 		return;
 	}
 
+	console.log(interaction);
+
 	await unregister(interaction);
 });
 
