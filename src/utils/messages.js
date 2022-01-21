@@ -11,28 +11,18 @@ const unregister_button = {
 	],
 };
 const yes_button = {
-	type: 1,
-	components: [
-		{
-			style: 3,
-			label: `Oui`,
-			custom_id: `yes_button`,
-			disabled: false,
-			type: 2,
-		},
-	],
+	style: 3,
+	label: `Oui`,
+	custom_id: `yes_button`,
+	disabled: false,
+	type: 2,
 };
 const no_button = {
-	type: 1,
-	components: [
-		{
-			style: 4,
-			label: `Non`,
-			custom_id: `no_button`,
-			disabled: false,
-			type: 2,
-		},
-	],
+	style: 4,
+	label: `Non`,
+	custom_id: `no_button`,
+	disabled: false,
+	type: 2,
 };
 
 const message_1 = {
