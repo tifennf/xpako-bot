@@ -140,9 +140,11 @@ client.on("interactionCreate", async (interaction) => {
 		return;
 	}
 
-	console.log(interaction);
+	const { customId } = interaction;
 
-	await unregister(interaction);
+	if (customId === "row_0_button_3") {
+		await unregister(interaction);
+	}
 });
 
 client.login(token);
