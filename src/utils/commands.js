@@ -78,18 +78,6 @@ const get_all_pprints = (pstr_list) => {
 	return header_print().concat(pstr_list.join(""));
 };
 
-// const clean_list = (list) => {
-// 	let j = 0;
-
-// 	for (let i = 1; i < list.length; i++) {
-
-// 		if (list[j].discord_id === list[i].discord_id) {
-// 			list.
-// 		}
-
-// 	}
-// };
-
 const generate_plist_string = (data) => {
 	const { list } = data.player_list;
 
@@ -179,6 +167,8 @@ const unregister = async (interaction) => {
 		discord_username: username,
 		tag: discriminator,
 		discord_id: id,
+		riot_account_id: "xxx",
+		puuid: "xxx",
 	};
 
 	const requestOptions = {
@@ -215,6 +205,8 @@ const remove_player = async (interaction) => {
 		discord_username: username,
 		tag: discriminator,
 		discord_id: id,
+		riot_account_id: "xxx",
+		puuid: "xxx",
 	};
 
 	const requestOptions = {

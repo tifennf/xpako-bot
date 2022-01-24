@@ -120,7 +120,8 @@ client.on("messageCreate", async (message) => {
 			} else if (err === 2) {
 				error = "Tu es déjà inscrit";
 			} else {
-				error = "Erreur inconnue";
+				console.log(err);
+				error = "Erreur...";
 			}
 
 			const info = new MessageEmbed()
