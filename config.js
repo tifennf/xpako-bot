@@ -3,7 +3,7 @@ const config = {
 	guildId: "920692425708695582",
 	clientId: "899247978420789278",
 	ip: "http://localhost:3024",
-	riot_api_key: "RGAPI-c1cf5b58-fa9d-44fc-9041-142b7b5aa151",
+	riot_api_key: "RGAPI-8bf7c31a-3fed-4b0e-850e-6ae5b931589f",
 };
 
 export default config;
