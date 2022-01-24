@@ -6,7 +6,7 @@ import config from "../config.js";
 import { unregister } from "./utils/commands.js";
 import { unregister_button } from "./utils/messages.js";
 
-const { token, guildId } = config;
+const { token, guildId, riot_api_key } = config;
 
 const client = new Client({
 	intents: [
@@ -61,29 +61,40 @@ client.on("messageCreate", async (message) => {
 		const { id } = message.author;
 		const league_name = message.content;
 
-		const player = {
-			league_name,
-			discord_username: username,
-			tag: discriminator,
-			discord_id: id,
-		};
-
-		const requestOptions = {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify(player),
-		};
-
 		try {
+			const riot_res = await fetch(
+				`https://euw1.api.riotgames.com/tft/summoner/v1/summoners/by-name/${league_name}?api_key=${riot_api_key}`
+			);
+
+			if (riot_res.status !== 200) {
+				throw "Pseudo TFT invalide";
+			}
+
+			const riot_player = await riot_res.json();
+
+			const player = {
+				league_name,
+				discord_username: username,
+				tag: discriminator,
+				discord_id: id,
+				riot_account_id: riot_player.accountId,
+				puuid: riot_player.puuid,
+			};
+
+			const requestOptions = {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(player),
+			};
 			const res = await fetch(
 				"http://localhost:3024/tournament/inscriptions",
 				requestOptions
 			);
 
 			if (res.status !== 200) {
-				throw "Invalid input";
+				throw "Déjà inscrit";
 			}
 
 			const info = new MessageEmbed()
@@ -102,10 +113,20 @@ client.on("messageCreate", async (message) => {
 			await message.react("✅");
 			message.author.send(msg);
 		} catch (err) {
+			let error;
+
+			if (err === 1) {
+				error = "Pseudo TFT invalide";
+			} else if (err === 2) {
+				error = "Tu es déjà inscrit";
+			} else {
+				error = "Erreur inconnue";
+			}
+
 			const info = new MessageEmbed()
 				.setTitle("Inscription impossible !")
 				.setColor("EB1EB5")
-				.setDescription("Tu es déjà inscrit.");
+				.setDescription(error);
 
 			const msg = {
 				embeds: [info],
