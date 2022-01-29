@@ -24,4 +24,5 @@ export default [
 	save,
 	reload,
 	removePlayer,
+	roundCheck,
 ];
