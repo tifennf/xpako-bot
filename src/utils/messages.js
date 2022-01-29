@@ -46,7 +46,7 @@ const message_1 = {
 const message_2 = {
 	header: {
 		content:
-			"Hello,\n\nNotre tournoi débute dans **15 minutes !**\nTiens toi prêt et rejoint notre Discord : https://discord.gg/SkMSdyTFjd\n\nSi tu es dans **l'incapacité de partager** ce bon moment avec nous, **clique sur le bouton rouge en bas !**\n\nA tout de suite !",
+			"Hello,\n\nNotre tournoi débute dans **15 minutes !**\nTu as **10min** pour valider ta présence en **cliquant** sur le bouton vert en bas, autrement nous serons obligé de te désinscrire.\n\nA tout de suite !",
 	},
 	footer: {
 		content: "\u200b",
@@ -55,7 +55,11 @@ const message_2 = {
 		components: [
 			{
 				type: 1,
-				components: [unregister_button],
+				components: [yes_button],
+			},
+			{
+				type: 1,
+				components: [no_button],
 			},
 		],
 	},

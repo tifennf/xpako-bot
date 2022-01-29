@@ -16,16 +16,8 @@ export default {
 	execute: async (interaction) => {
 		const data = await get_infos();
 
-		const options = interaction.options._hoistedOptions;
-
-		const which_message = options[0].value;
-
 		try {
-			if (which_message < 1 || which_message > 2) {
-				throw "Aucun message sélectionné";
-			}
-
-			const message = which_message === 1 ? message_1 : message_2;
+			const message = message_1;
 			const id_list = data.player_list.list.map((player) => player.discord_id);
 
 			const guildMembers = await interaction.guild.members.fetch();

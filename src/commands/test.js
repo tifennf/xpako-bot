@@ -1,49 +1,37 @@
-// import { SlashCommandBuilder } from "@discordjs/builders";
-// import { get_infos, message_1, message_2 } from "../utils/commands.js";
+import { SlashCommandBuilder } from "@discordjs/builders";
+import { get_infos, message_2 } from "../utils/commands.js";
 
-// export default {
-// 	data: new SlashCommandBuilder()
-// 		.setName("test")
-// 		.setDescription("Envoi un message privé de rappel aux joueurs inscrits")
-// 		.setDefaultPermission(false)
-// 		.addIntegerOption((option) =>
-// 			option
-// 				.setName("message_index")
-// 				.setDescription("Quel message envoyer ? 1(24h) 2(15min)")
-// 				.setRequired(true)
-// 		),
-// 	execute: async (interaction) => {
-// 		const data = await get_infos();
+export default {
+	data: new SlashCommandBuilder()
+		.setName("test")
+		.setDescription("Envoi un message privé de rappel aux joueurs inscrits")
+		.setDefaultPermission(false),
+	execute: async (interaction) => {
+		const data = await get_infos();
 
-// 		const options = interaction.options._hoistedOptions;
+		try {
+			const message = message_2;
 
-// 		const which_message = options[0].value;
+			// const id_list = data.player_list.list.map((player) => player.discord_id);
 
-// 		try {
-// 			if (which_message < 1 || which_message > 2) {
-// 				throw "Aucun message sélectionné";
-// 			}
+			const guildMembers = await interaction.guild.members.fetch();
 
-// 			const message = which_message === 1 ? message_1 : message_2;
+			guildMembers.each(async (guildMember) => {
+				const { user } = guildMember;
 
-// 			// const id_list = data.player_list.list.map((player) => player.discord_id);
+				const { id } = user;
 
-// 			const guildMembers = await interaction.guild.members.fetch();
+				if (id === "208092469546582017") {
+					const m = { ...message.header, ...message.footer };
 
-// 			guildMembers.each(async (guildMember) => {
-// 				const { user } = guildMember;
+					await user.send(m);
+					// user.send(message.footer);
+				}
+			});
 
-// 				const { id } = user;
-
-// 				if (id === "208092469546582017") {
-// 					await user.send(message.header);
-// 					user.send(message.footer);
-// 				}
-// 			});
-
-// 			interaction.reply("Check-in fait");
-// 		} catch (error) {
-// 			interaction.reply(error);
-// 		}
-// 	},
-// };
+			interaction.reply("Check-in fait");
+		} catch (error) {
+			interaction.reply(error);
+		}
+	},
+};
