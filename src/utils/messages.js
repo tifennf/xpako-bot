@@ -44,25 +44,19 @@ const message_1 = {
 };
 
 const message_2 = {
-	header: {
-		content:
-			"Hello,\n\nNotre tournoi débute dans **15 minutes !**\nTu as **10min** pour valider ta présence en **cliquant** sur le bouton vert en bas, autrement nous serons obligé de te désinscrire.\n\nA tout de suite !",
-	},
-	footer: {
-		content: "\u200b",
-		embeds: [unregister_embed],
-
-		components: [
-			{
-				type: 1,
-				components: [yes_button],
-			},
-			{
-				type: 1,
-				components: [no_button],
-			},
-		],
-	},
+	content:
+		"Hello,\n\nNotre tournoi débute dans **15 minutes !**\nTu as **10min** pour valider ta présence en **cliquant** sur le bouton vert en bas, autrement nous serons obligé de te désinscrire.\n\nA tout de suite !",
+	embeds: [unregister_embed],
+	components: [
+		{
+			type: 1,
+			components: [yes_button],
+		},
+		{
+			type: 1,
+			components: [no_button],
+		},
+	],
 };
 
 export { unregister_button, message_1, message_2 };
