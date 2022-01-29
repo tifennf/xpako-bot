@@ -43,20 +43,25 @@ const message_1 = {
 	},
 };
 
-const message_2 = {
-	content:
-		"Hello,\n\nNotre tournoi débute dans **15 minutes !**\nTu as **10min** pour valider ta présence en **cliquant** sur le bouton vert en bas, autrement nous serons obligé de te désinscrire.\n\nA tout de suite !",
-	embeds: [unregister_embed],
-	components: [
-		{
-			type: 1,
-			components: [yes_button],
-		},
-		{
-			type: 1,
-			components: [no_button],
-		},
-	],
+const round_check_message = (time) => {
+	const message = {
+		content: `Hello,\n\nMerci de confirmer ta présence pour le tournoi TFT, tu as **${time}min pour cliquer** sur le bouton vert en bas, sinon tu seras retiré de la liste des participants.\n\nA tout de suite !`,
+		embeds: [unregister_embed],
+		components: [
+			{
+				components: [
+					{
+						type: 1,
+						components: [yes_button],
+					},
+					{
+						type: 1,
+						components: [no_button],
+					},
+				],
+			},
+		],
+	};
 };
 
-export { unregister_button, message_1, message_2 };
+export { unregister_button, message_1, round_check_message };
