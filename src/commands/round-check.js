@@ -1,5 +1,5 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
-import { get_infos } from "../utils/commands.js";
+import { get_infos, start_round_check } from "../utils/commands.js";
 import { round_check_message } from "../utils/messages.js";
 
 export default {
@@ -19,9 +19,11 @@ export default {
 		const options = interaction.options._hoistedOptions;
 		const time = options[0].value;
 
-		const data = await get_infos();
-
 		try {
+			await start_round_check(time);
+
+			const data = await get_infos();
+
 			const id_list = data.player_list.list.map((player) => player.discord_id);
 
 			const guildMembers = await interaction.guild.members.fetch();
@@ -36,7 +38,7 @@ export default {
 				}
 			});
 
-			interaction.reply(`Round-check de ${time} minutes lancé`);
+			interaction.reply(`Round-check de ${time} secondes lancé`);
 		} catch (error) {
 			interaction.reply(error);
 		}

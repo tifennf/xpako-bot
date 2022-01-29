@@ -1,7 +1,7 @@
 import fetch from "node-fetch";
 import config from "../../config.js";
 
-const { ip } = config;
+const { ip, ip_round_check } = config;
 const header_print = () => {
 	return "\n============================================================\n Pseudo discord ▶ Pseudo Ing\n============================================================\n";
 };
@@ -230,6 +230,14 @@ const remove_player = async (interaction) => {
 	}
 };
 
+const start_round_check = async (time) => {
+	const res = await fetch(`${ip_round_check}/start/${time}`);
+
+	const body = await res.json();
+
+	return body;
+};
+
 export {
 	openInscriptions,
 	generate_pools_string,
@@ -239,4 +247,5 @@ export {
 	get_command_options,
 	unregister,
 	remove_player,
+	start_round_check,
 };
