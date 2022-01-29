@@ -6,13 +6,7 @@ export default {
 	data: new SlashCommandBuilder()
 		.setName("check-in")
 		.setDescription("Envoi un message privé de rappel aux joueurs inscrits")
-		.setDefaultPermission(false)
-		.addIntegerOption((option) =>
-			option
-				.setName("message_index")
-				.setDescription("Quel message envoyer ? 1(24h) 2(15min)")
-				.setRequired(true)
-		),
+		.setDefaultPermission(false),
 	execute: async (interaction) => {
 		const data = await get_infos();
 
