@@ -241,9 +241,7 @@ const start_round_check = async (time) => {
 const check_from_player = async (id) => {
 	const res = await fetch(`${ip_round_check}/check/${id}`);
 
-	const body = await res.text();
-
-	return body;
+	return res;
 };
 
 export {
@@ -256,4 +254,5 @@ export {
 	unregister,
 	remove_player,
 	start_round_check,
+	check_from_player,
 };

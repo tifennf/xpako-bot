@@ -3,7 +3,7 @@ import { Client, Collection, Intents, MessageEmbed } from "discord.js";
 import commands from "./commands/_commands.js";
 import fetch from "node-fetch";
 import config from "../config.js";
-import { unregister } from "./utils/commands.js";
+import { check_from_player, unregister } from "./utils/commands.js";
 import { unregister_button } from "./utils/messages.js";
 
 const { token, guildId, riot_api_key } = config;
@@ -167,6 +167,14 @@ client.on("interactionCreate", async (interaction) => {
 	if (customId === "row_0_button_3") {
 		await unregister(interaction);
 	} else if (customId === "yes_button") {
+		const { id } = interaction.discord_id;
+
+		const res = await check_from_player(id);
+
+		if (res.status !== 200) {
+			interaction.reply("Erreur, contactez un admin");
+		}
+
 		interaction.reply("Votre participation est confirmée");
 	} else if (customId === "no_button") {
 		interaction.reply("Votre participation est annulée");
