@@ -50,16 +50,7 @@ const round_check_message = (time) => {
 		components: [
 			{
 				type: 1,
-				components: [
-					{
-						type: 1,
-						components: [yes_button],
-					},
-					{
-						type: 1,
-						components: [no_button],
-					},
-				],
+				components: [yes_button, no_button],
 			},
 		],
 	};
