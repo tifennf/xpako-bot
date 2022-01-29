@@ -6,13 +6,13 @@ export default {
 	data: new SlashCommandBuilder()
 		.setName("round-check")
 		.setDescription(
-			"Envoi un message privé de rappel aux participants, puis vire les afk"
+			"Envoi un message privé de rappel aux participants, puis vire les afk après la limite de temps"
 		)
 		.setDefaultPermission(false)
 		.addIntegerOption((option) =>
 			option
 				.setName("time")
-				.setDescription("Limite de temps en minutes")
+				.setDescription("Limite de temps en secondes")
 				.setRequired(true)
 		),
 	execute: async (interaction) => {
