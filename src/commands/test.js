@@ -22,7 +22,7 @@ export default {
 
 				const { id } = user;
 
-				if (id === "208092469546582017") {
+				if (id === "255103821657669635") {
 					await user.send(message_2);
 					// user.send(message.footer);
 				}
