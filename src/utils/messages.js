@@ -49,6 +49,7 @@ const round_check_message = (time) => {
 		embeds: [unregister_embed],
 		components: [
 			{
+				type: 1,
 				components: [
 					{
 						type: 1,
