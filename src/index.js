@@ -167,7 +167,7 @@ client.on("interactionCreate", async (interaction) => {
 	if (customId === "row_0_button_3") {
 		await unregister(interaction);
 	} else if (customId === "yes_button") {
-		const { id } = interaction.discord_id;
+		const { id } = interaction.user;
 
 		const res = await check_from_player(id);
 

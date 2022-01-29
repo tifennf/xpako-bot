@@ -48,8 +48,10 @@ const message_1 = {
 };
 
 const round_check_message = (time) => {
+	const min = time / 60;
+
 	const message = {
-		content: `Hello,\n\nMerci de confirmer ta présence pour le tournoi TFT, tu as **${time}min pour cliquer** sur le bouton vert en bas, sinon tu seras retiré de la liste des participants.\n\nA tout de suite !\u200b`,
+		content: `Hello,\n\nMerci de confirmer ta présence pour le tournoi TFT, tu as **${min}min pour cliquer** sur le bouton vert en bas, sinon tu seras retiré de la liste des participants.\n\nA tout de suite !\u200b`,
 		embeds: [round_check_embed],
 		components: [
 			{
