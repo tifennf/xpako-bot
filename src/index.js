@@ -166,6 +166,10 @@ client.on("interactionCreate", async (interaction) => {
 
 	if (customId === "row_0_button_3") {
 		await unregister(interaction);
+	} else if (customId === "yes_button") {
+		interaction.reply("Votre participation est confirmée");
+	} else if (customId === "no_button") {
+		interaction.reply("Votre participation est annulée");
 	}
 });
 
