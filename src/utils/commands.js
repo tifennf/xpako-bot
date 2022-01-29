@@ -244,6 +244,12 @@ const check_from_player = async (id) => {
 	return res;
 };
 
+const verify_check = async () => {
+	const res = await fetch(`${ip_round_check}/info`);
+
+	return res;
+};
+
 export {
 	openInscriptions,
 	generate_pools_string,
@@ -255,4 +261,5 @@ export {
 	remove_player,
 	start_round_check,
 	check_from_player,
+	verify_check,
 };

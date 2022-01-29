@@ -4,7 +4,7 @@ const config = {
 	clientId: "899247978420789278",
 	ip: "http://localhost:3024",
 	ip_round_check: "http://localhost:3025",
-	riot_api_key: "RGAPI-8bf7c31a-3fed-4b0e-850e-6ae5b931589f",
+	riot_api_key: "RGAPI-d2ea4503-d3cf-4fb3-ab0c-f43db0842427",
 };
 
 export default config;
