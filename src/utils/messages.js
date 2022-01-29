@@ -2,6 +2,11 @@ const unregister_embed = {
 	color: "EB1EB5",
 	title: "Si tu ne pourras pas être présent, clique sur ce bouton",
 };
+const round_check_embed = {
+	color: "EB1EB5",
+	title:
+		"Confirme ta présence en cliquant sur le bouton vert, ou sinon le rouge le cas contraire",
+};
 
 const unregister_button = {
 	style: 4,
@@ -46,7 +51,7 @@ const message_1 = {
 const round_check_message = (time) => {
 	const message = {
 		content: `Hello,\n\nMerci de confirmer ta présence pour le tournoi TFT, tu as **${time}min pour cliquer** sur le bouton vert en bas, sinon tu seras retiré de la liste des participants.\n\nA tout de suite !`,
-		embeds: [unregister_embed],
+		embeds: [round_check_embed],
 		components: [
 			{
 				type: 1,
