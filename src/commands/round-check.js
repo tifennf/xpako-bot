@@ -31,7 +31,7 @@ export default {
 
 				const { id } = user;
 
-				if (id === "255103821657669635") {
+				if (id_list.includes(id)) {
 					user.send(round_check_message(time));
 				}
 			});
