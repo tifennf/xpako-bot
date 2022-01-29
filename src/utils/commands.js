@@ -226,6 +226,7 @@ const remove_player = async (interaction) => {
 
 		interaction.reply("Joueur supprimé des inscrits");
 	} catch (err) {
+		console.error(err);
 		interaction.reply("Joueur pas inscrit");
 	}
 };
