@@ -4,13 +4,15 @@ import { round_check_message } from "../utils/messages.js";
 
 export default {
 	data: new SlashCommandBuilder()
-		.setName("test")
-		.setDescription("Envoi un message privé de rappel aux joueurs inscrits")
+		.setName("round-check")
+		.setDescription(
+			"Envoi un message privé de rappel aux participants, puis vire les afk"
+		)
 		.setDefaultPermission(false)
 		.addIntegerOption((option) =>
 			option
 				.setName("time")
-				.setDescription("Limite de temps en minutes avant triage des afk")
+				.setDescription("Limite de temps en minutes")
 				.setRequired(true)
 		),
 	execute: async (interaction) => {

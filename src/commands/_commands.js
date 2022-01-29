@@ -10,6 +10,7 @@ import save from "./save.js";
 import reload from "./reload.js";
 // import test from "./test.js";
 import removePlayer from "./remove-player.js";
+import roundCheck from "./round-check.js";
 
 export default [
 	open,
