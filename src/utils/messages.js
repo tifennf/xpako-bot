@@ -4,8 +4,7 @@ const unregister_embed = {
 };
 const round_check_embed = {
 	color: "EB1EB5",
-	title:
-		"Confirme ta présence en cliquant sur le bouton vert, ou sinon le rouge le cas contraire",
+	title: "Est ce que tu confirmes ta présence ?",
 };
 
 const unregister_button = {
