@@ -238,6 +238,14 @@ const start_round_check = async (time) => {
 	return body;
 };
 
+const check_from_player = async (id) => {
+	const res = await fetch(`${ip_round_check}/check/${id}`);
+
+	const body = await res.text();
+
+	return body;
+};
+
 export {
 	openInscriptions,
 	generate_pools_string,
