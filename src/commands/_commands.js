@@ -11,6 +11,7 @@ import reload from "./reload.js";
 // import test from "./test.js";
 import removePlayer from "./remove-player.js";
 import roundCheck from "./round-check.js";
+import verifyCheck from "./verify-check.js";
 
 export default [
 	open,
@@ -25,4 +26,5 @@ export default [
 	reload,
 	removePlayer,
 	roundCheck,
+	verifyCheck,
 ];
