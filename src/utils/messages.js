@@ -63,6 +63,8 @@ const round_check_message = (time) => {
 			},
 		],
 	};
+
+	return message;
 };
 
 export { unregister_button, message_1, round_check_message };
