@@ -1,6 +1,7 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
 import fs from "fs/promises";
 import toml from "toml";
+import path from "path";
 
 export default {
 	data: new SlashCommandBuilder()
@@ -16,11 +17,13 @@ export default {
 		const key = options[0].value;
 
 		try {
-			const file = await fs.readFile("../../../services/tournament-core/config.toml");
+			// const file = await fs.readFile("../../../services/tournament-core/config.toml");
 
-			const config = toml.parse(file);
+			// const config = toml.parse(file);
 
-			console.log(config);
+			const p = path.resolve([__dirname, "../"]);
+
+			console.log(p);
 		} catch (error) {
 			console.error(error);
 		}
