@@ -21,7 +21,7 @@ export default {
 
 			// const config = toml.parse(file);
 
-			const p = path.resolve([__dirname, "../"]);
+			const p = path.resolve("~/services/tournament-core/config.toml");
 
 			console.log(p);
 		} catch (error) {
