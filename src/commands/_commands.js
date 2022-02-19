@@ -12,6 +12,7 @@ import reload from "./reload.js";
 import removePlayer from "./remove-player.js";
 import roundCheck from "./round-check.js";
 import verifyCheck from "./verify-check.js";
+import riotApiKey from "./riot-api-key.js";
 
 export default [
 	open,
@@ -27,4 +28,5 @@ export default [
 	removePlayer,
 	roundCheck,
 	verifyCheck,
+	riotApiKey,
 ];
